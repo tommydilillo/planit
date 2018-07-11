@@ -14,6 +14,8 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const User = require("./models/user");
 const flash = require("connect-flash");
+const FbStrategy = require("passport-facebook").Strategy;
+const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 
 mongoose.Promise = Promise;
 mongoose
@@ -55,6 +57,69 @@ passport.deserializeUser((id, cb) => {
 });
 
 app.use(flash());
+
+passport.use(
+  new FbStrategy(
+    {
+      clientID: process.env.FB_CLIENT_ID,
+      clientSecret: process.env.FB_CLIENT_SECRET,
+      callbackURL: "/auth/facebook/callback"
+    },
+    (accessToken, refreshToken, profile, done) => {
+      User.findOne({ facebookID: profile.id }, (err, user) => {
+        if (err) {
+          return done(err);
+        }
+        if (user) {
+          return done(null, user);
+        }
+
+        const newUser = new User({
+          facebookID: profile.id
+        });
+
+        newUser.save(err => {
+          if (err) {
+            return done(err);
+          }
+          done(null, newUser);
+        });
+      });
+    }
+  )
+);
+
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: "/auth/google/callback"
+    },
+    (accessToken, refreshToken, profile, done) => {
+      User.findOne({ googleID: profile.id }, (err, user) => {
+        if (err) {
+          return done(err);
+        }
+        if (user) {
+          return done(null, user);
+        }
+
+        const newUser = new User({
+          googleID: profile.id
+        });
+
+        newUser.save(err => {
+          if (err) {
+            return done(err);
+          }
+          done(null, newUser);
+        });
+      });
+    }
+  )
+);
+
 passport.use(
   new LocalStrategy(
     {

@@ -65,15 +65,40 @@ authRoutes.post(
   })
 );
 
+//FACEBOOK
+
+authRoutes.get("/auth/facebook", passport.authenticate("facebook"));
+authRoutes.get(
+  "/auth/facebook/callback",
+  passport.authenticate("facebook", {
+    successRedirect: "/home",
+    failureRedirect: "/"
+  })
+);
+
+//GOOGLE
+authRoutes.get(
+  "/auth/google",
+  passport.authenticate("google", {
+    scope: [
+      "https://www.googleapis.com/auth/plus.login",
+      "https://www.googleapis.com/auth/plus.profile.emails.read"
+    ]
+  })
+);
+
+authRoutes.get(
+  "/auth/google/callback",
+  passport.authenticate("google", {
+    failureRedirect: "/",
+    successRedirect: "/home"
+  })
+);
+
 //LOGOUT ROUTES
 authRoutes.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/login");
-});
-
-//HOME-PRIVATE
-authRoutes.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render("/home", { user: req.user });
 });
 
 module.exports = authRoutes;
