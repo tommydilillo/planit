@@ -6,7 +6,9 @@ const userSchema = new Schema(
     username: String,
     password: String,
     facebookID: String,
-    googleID: String
+    googleID: String,
+    avatar: { type: String, default: "images/default-avatar.png" },
+    homeCity: String
   },
   {
     timestamps: {

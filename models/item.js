@@ -1,13 +1,34 @@
 const Item = new Schema(
   {
-    name: String,
+    name: { type: String, required: true },
     location: { type: { type: String }, coordinates: [Number] },
-    itemType: String,
-    visited: Boolean,
-    datesVisited: String,
-    imgName: String,
-    imgPath: String,
-    order: Number
+    itemType: {
+      type: String,
+      enum: [
+        "food & drink",
+        "lodging",
+        "nightlife",
+        "music",
+        "culture & arts",
+        "outdoors",
+        "kids",
+        "festivals & fairs",
+        "fun",
+        "off-beat",
+        "misc"
+      ]
+    },
+    history: {
+      visited: Boolean,
+      datesVisited: Date,
+      futureVisit: Date
+    },
+    img: {
+      name: String,
+      path: String
+    },
+    priority: Number,
+    notes: { type: String, maxlength: 200 }
   },
   {
     timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" }
