@@ -8,7 +8,8 @@ const userSchema = new Schema(
     facebookID: String,
     googleID: String,
     avatar: { type: String, default: "images/default-avatar.png" },
-    homeCity: String
+    homeCity: String,
+    email: String 
   },
   {
     timestamps: {

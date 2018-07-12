@@ -13,7 +13,7 @@ router.get("/", (req, res, next) => {
 
 //HOME-PRIVATE
 router.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render("/home", { user: req.user });
+  res.render("home", { user: req.user });
 });
 
 module.exports = router;

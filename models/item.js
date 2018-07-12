@@ -18,11 +18,8 @@ const Item = new Schema(
         "misc"
       ]
     },
-    history: {
-      visited: Boolean,
-      datesVisited: Date,
-      futureVisit: Date
-    },
+    visitDate: Date,
+
     img: {
       name: String,
       path: String
