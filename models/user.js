@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+// const ObjectId = Schema.ObjectId;
 
 const userSchema = new Schema(
   {
@@ -7,9 +8,10 @@ const userSchema = new Schema(
     password: String,
     facebookID: String,
     googleID: String,
-    avatar: { type: String, default: "images/default-avatar.png" },
-    homeCity: String,
-    email: String 
+    city: String,
+    country: String,
+    email: String,
+    avatar: { type: String, default: "images/default-avatar.png" }
   },
   {
     timestamps: {

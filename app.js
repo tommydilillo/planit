@@ -174,9 +174,12 @@ app.locals.title = "planIt";
 
 //
 const index = require("./routes/index");
-const authRoutes = require("./routes/auth-routes");
-
 app.use("/", index);
+
+const authRoutes = require("./routes/auth-routes");
 app.use("/", authRoutes);
+
+const lists = require("./routes/lists");
+app.use("lists", lists);
 
 module.exports = app;

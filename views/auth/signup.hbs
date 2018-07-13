@@ -6,16 +6,32 @@
     <br>
     <br>
     <label for="password">Password</label>
-    <input id="password" type="password" name="password" placeholder="Your password"> {{#if message}}
+    <input id="password" type="password" name="password" placeholder="Your password">
+    <br>
+    <br>
+
+    <label for="email">Email</label>
+    <input id="email" type="text" name="email" placeholder="Email Required">
+    <br>
+    <br>
+
+    <label for="city">Home City</label>
+    <input id="city" type="text" name="city" placeholder="Miami, FL">
+    <br>
+    <br>
+
+    <label for="country">Home Country</label>
+    <input id="country" type="text" name="country" placeholder="USA" <br>
+    <br>
+    <br> {{#if message}}
     <div class="error-message">{{ message }}</div>
     {{/if}}
-    <br>
-    <br>
 
     <button>Create account</button>
 
-    <p class="account-message">
-        Do you already have an account?
-        <a href="/login">Login</a>
-    </p>
 </form>
+
+<p class="account-message">
+    Do you already have an account?
+    <a href="/login">Login</a>
+</p>

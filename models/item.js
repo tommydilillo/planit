@@ -1,7 +1,11 @@
-const Item = new Schema(
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+const ObjectId = Schema.ObjectId;
+
+const itemSchema = new Schema(
   {
-    name: { type: String, required: true },
-    location: { type: { type: String }, coordinates: [Number] },
+    name: [{ type: ObjectId, ref: "Place" }],
+    location: [{ type: ObjectId, ref: "Place" }],
     itemType: {
       type: String,
       enum: [
@@ -11,6 +15,7 @@ const Item = new Schema(
         "music",
         "culture & arts",
         "outdoors",
+        "sports",
         "kids",
         "festivals & fairs",
         "fun",
@@ -18,12 +23,14 @@ const Item = new Schema(
         "misc"
       ]
     },
-    visitDate: Date,
+    visitDate: [Date],
 
-    img: {
-      name: String,
-      path: String
-    },
+    imgs: [
+      {
+        name: String,
+        path: String
+      }
+    ],
     priority: Number,
     notes: { type: String, maxlength: 200 }
   },
@@ -31,3 +38,7 @@ const Item = new Schema(
     timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" }
   }
 );
+
+const Item = mongoose.model("Item", itemSchema);
+
+module.exports = Item;
