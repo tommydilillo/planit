@@ -180,6 +180,6 @@ const authRoutes = require("./routes/auth-routes");
 app.use("/", authRoutes);
 
 const lists = require("./routes/lists");
-app.use("lists", lists);
+app.use("/lists", lists);
 
 module.exports = app;

@@ -6,9 +6,9 @@ const listSchema = new Schema(
     name: String,
     // user_id: [{ type: ObjectId, ref: "User" }],
     location: { type: { type: String }, coordinates: [Number] },
-    purpose: {
+    purpurpopose: {
       type: String,
-      enum: ["vacation", "staycation", "roadtrip", "local"]
+      enum: ["vacation", "staycation", "roadtrip", "local", "other"]
     },
     public: {
       type: Boolean,

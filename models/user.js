@@ -9,8 +9,10 @@ const userSchema = new Schema(
     facebookID: String,
     googleID: String,
     city: String,
+    state: String,
     country: String,
     email: String,
+    age: { type: Number, min: 0, max: 150 },
     avatar: { type: String, default: "images/default-avatar.png" }
   },
   {

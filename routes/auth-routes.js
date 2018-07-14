@@ -14,7 +14,16 @@ authRoutes.get("/signup", (req, res, next) => {
 });
 
 authRoutes.post("/signup", (req, res, next) => {
-  const { username, password } = req.body;
+  const {
+    username,
+    password,
+    city,
+    state,
+    country,
+    email,
+    age,
+    avatar
+  } = req.body;
 
   if (username === "" || password === "") {
     res.render("auth/signup", { message: "Indicate username and password" });
@@ -33,7 +42,13 @@ authRoutes.post("/signup", (req, res, next) => {
 
       const newUser = new User({
         username,
-        password: hashPass
+        password: hashPass,
+        city,
+        state,
+        country,
+        email,
+        age,
+        avatar
       });
 
       newUser.save(err => {
