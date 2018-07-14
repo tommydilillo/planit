@@ -12,9 +12,4 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-//HOME PAGE
-router.get("/home", (req, res, next) => {
-  res.render("home");
-});
-
 module.exports = router;

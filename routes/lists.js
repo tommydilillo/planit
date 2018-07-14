@@ -8,19 +8,40 @@ const passport = require("passport");
 const ensureLogin = require("connect-ensure-login");
 
 //LISTS PAGE
+
 router.get("/", (req, res, next) => {
-  res.render("lists/index");
+  List.find()
+    .then(lists => {
+      res.render("lists/index", { lists });
+    })
+    .catch(error => {
+      console.log(error);
+      next();
+    });
 });
 
-// router.get("/", (req, res, next) => {
-//   List.find().then(lists => console.log(lists));
-//   res.render;
-//   "lists/index",
-//     { lists }.catch(error => {
-//       console.log(error);
-//       next();
-//     })();
-// });
+// console.log(`LISTS: ${lists}`
+
+// LIST DETAIL PAGE
+
+router.get("/list/:id", (req, res, next) => {
+  let listId = req.params.id;
+  console.log(`listId: ${listId}`);
+  // if (!/^[0-9a-fA-F]{24}$/.test(listId)) {
+  //   return res.status(404).render("not-found");
+  // }
+  List.findOne({ _id: listId })
+    .then(list => {
+      console.log(list);
+      res.render("lists/list-detail", { list });
+    })
+    .catch(error => {
+      console.log(error);
+      next();
+    });
+});
+
+// // List.findOne({ "/list/_id": listId })
 
 // ADD A NEW LIST
 router.get("/add", (req, res, next) => {

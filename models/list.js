@@ -1,12 +1,13 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const ObjectId = Schema.ObjectId;
 
 const listSchema = new Schema(
   {
     name: String,
-    // user_id: [{ type: ObjectId, ref: "User" }],
+    list_creator: [{ type: ObjectId, ref: "User" }],
     location: { type: { type: String }, coordinates: [Number] },
-    purpurpopose: {
+    purpopose: {
       type: String,
       enum: ["vacation", "staycation", "roadtrip", "local", "other"]
     },

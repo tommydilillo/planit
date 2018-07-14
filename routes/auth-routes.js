@@ -116,4 +116,9 @@ authRoutes.get("/logout", (req, res) => {
   res.redirect("/login");
 });
 
+//HOME PAGE
+authRoutes.get("/home", ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  res.render("home", { user: req.user });
+});
+
 module.exports = authRoutes;
