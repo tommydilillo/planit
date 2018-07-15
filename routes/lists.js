@@ -22,7 +22,7 @@ router.get("/", (req, res, next) => {
 
 // ADD A NEW LIST
 router.get("/add", (req, res, next) => {
-  res.render("lists/add");
+  res.render("/add");
 });
 
 router.post("/add", (req, res, next) => {
@@ -40,7 +40,7 @@ router.post("/add", (req, res, next) => {
 
 // LIST DETAIL PAGE
 
-router.get("list/:id", (req, res, next) => {
+router.get("/:id", (req, res, next) => {
   res.render("lists/list-detail");
 });
 

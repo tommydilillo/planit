@@ -113,7 +113,7 @@ authRoutes.get(
 //LOGOUT ROUTES
 authRoutes.get("/logout", (req, res) => {
   req.logout();
-  res.redirect("/login");
+  res.redirect("/");
 });
 
 //HOME PAGE
