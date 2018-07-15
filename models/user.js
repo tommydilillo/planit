@@ -13,7 +13,7 @@ const userSchema = new Schema(
     country: String,
     email: String,
     age: { type: Number, min: 0, max: 150 },
-    avatar: { type: String, default: "images/default-avatar.png" }
+    avatar: { type: String, default: "images/default-avatar.jpg" }
   },
   {
     timestamps: {

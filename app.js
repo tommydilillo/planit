@@ -179,6 +179,9 @@ app.use("/", index);
 const authRoutes = require("./routes/auth-routes");
 app.use("/", authRoutes);
 
+const userRoutes = require("./routes/user");
+app.use("/", userRoutes);
+
 const lists = require("./routes/lists");
 app.use("/lists", lists);
 
