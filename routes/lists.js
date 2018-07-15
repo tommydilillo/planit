@@ -40,16 +40,20 @@ router.post("/add", (req, res, next) => {
 
 // LIST DETAIL PAGE
 
-router.get("/list/:id", (req, res, next) => {
+// router.get("/list/:id", (req, res, next) => {
+//   res.render("lists/list-detail");
+// });
+
+router.get("/:id", (req, res, next) => {
   let listId = req.params.id;
   console.log(`listId: ${listId}`);
-  if (!/^[0-9a-fA-F]{24}$/.test(listId)) {
-    return res.status(404).render("not-found");
-  }
+  // if (!/^[0-9a-fA-F]{24}$/.test(listId)) {
+  //   return res.status(404).render("not-found");
+  // }
   List.findOne({ _id: listId })
     .then(list => {
       console.log(list);
-      res.render("lists/list-detail", { list });
+      res.render("/list-detail", { list });
     })
     .catch(error => {
       console.log(error);
