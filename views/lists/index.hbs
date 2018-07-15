@@ -12,13 +12,8 @@
         <a href="/lists/add">CREATE A NEW LIST</a>
     </span>
 </h1>
+
 {{#each lists}}
 <h3>
-    <a href=".list/{{this._id}}">{{this.name}}</a>
+    <a href="list/{{this._id}}">{{this.name}}</a>
 </h3> {{/each}}
-
-
-
-<h3>
-    <a href="/lists/add">Create a new List</a>
-</h3>
