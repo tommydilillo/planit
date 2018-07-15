@@ -7,7 +7,7 @@ const listSchema = new Schema(
     name: String,
     list_creator: [{ type: ObjectId, ref: "User" }],
     location: { type: { type: String }, coordinates: [Number] },
-    purpopose: {
+    purpose: {
       type: String,
       enum: ["vacation", "staycation", "roadtrip", "local", "other"]
     },
