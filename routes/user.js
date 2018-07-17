@@ -9,16 +9,16 @@ const ensureLogin = require("connect-ensure-login");
 
 // MY LISTS PAGE DOESN"T SHOW UP WHEN THIS IS ACTIVATED (THIS PAGE WORKS FINE)
 
-// userRoutes.get("/:username", (req, res, next) => {
-//   let userId = req.params.username;
+userRoutes.get("/:username", (req, res, next) => {
+  let userId = req.params.username;
 
-//   User.findOne({ username: userId })
-//     .then(user => {
-//       res.render("user/profile", { user });
-//     })
-//     .catch(error => {
-//       console.log(error);
-//     });
-// });
+  User.findOne({ username: userId })
+    .then(user => {
+      res.render("user/profile", { user });
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
 
 module.exports = userRoutes;

@@ -6,7 +6,7 @@ const itemSchema = new Schema(
   {
     name: [{ type: ObjectId, ref: "Place" }],
     location: [{ type: ObjectId, ref: "Place" }],
-    itemType: {
+    category: {
       type: String,
       enum: [
         "food & drink",

@@ -173,6 +173,9 @@ app.use(passport.session());
 app.locals.title = "planIt";
 
 //
+const lists = require("./routes/lists");
+app.use("/lists", lists);
+
 const index = require("./routes/index");
 app.use("/", index);
 
@@ -180,9 +183,6 @@ const authRoutes = require("./routes/auth-routes");
 app.use("/", authRoutes);
 
 const userRoutes = require("./routes/user");
-app.use("/", userRoutes);
-
-const lists = require("./routes/lists");
-app.use("/lists", lists);
+app.use("/user", userRoutes);
 
 module.exports = app;

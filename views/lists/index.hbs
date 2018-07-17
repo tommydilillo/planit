@@ -1,13 +1,5 @@
-{{!--
-<h1>My Lists [NEED TO REFINE QUERY LATER</h1>
-
-{{#each lists}}
-<h3>
-    <a href="./{{this._id}}">{{this.name}}</a>
-</h3> {{/each}} --}}
-
-
-<h1>All Lists --
+<h1>
+    All Lists --
     <span>
         <a href="/lists/add">CREATE A NEW LIST</a>
     </span>
@@ -16,4 +8,14 @@
 {{#each lists}}
 <h3>
     <a href="/lists/{{this._id}}">{{this.name}}</a>
+    <a href="/lists/{{this._id}}/edit">EDIT</a>
+
+    <form action="/lists/{{this._id}}/delete" method="post">
+        <span>
+            <button type="submit">DELETE</button>
+        </span>
+        <input type="hidden" name="_id">
+
+    </form>
+
 </h3> {{/each}}

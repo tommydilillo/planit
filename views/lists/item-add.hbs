@@ -1,0 +1,60 @@
+h2>Add a List</h2>
+
+
+<form action="/lists/add" method="POST" id="form-container">
+    <label for="name">Name:</label>
+    <input id="name" type="text" name="name" placeholder="Item name">
+    <br>
+    <br>
+
+    <label for="location">Location:</label>
+    <input id="location" type="text" name="location" placeholder="i.e. Florida, Miami, or USA">
+    <br>
+    <br>
+    <label for="category">Category:</label>
+    <select id="category" name="category">
+        <option value="food + drink">Food + Drink</option>
+        <option value="lodging">Lodging</option>
+        <option value="nightlife">Night Life</option>
+        <option value="music">Music</option>
+        <option value="culture + arts">Culture + Arts</option>
+        <option value="outdoors">Outdoors</option>
+        <option value="sports">Sports</option>
+        <option value="kids">kids</option>
+        <option value="festivals + fairs">Festivals + Fairs</option>
+        <option value="fun">Fun</option>
+        <option value="off-beat">Off-beat</option>
+        <option value="misc">Misc</option>
+    </select>
+    <br>
+    <br>
+    <label for="visitDate">Visit Date</label>
+    <input id="visitDate" type="date" name="visitDate">
+    <br>
+    <br> {{!--
+    <label for="img">Images:</label>
+    <input id="img" type="img" name="img">
+    <br>
+    <br> --}}
+
+    <label for="notes">Notes:</label>
+    <input id="location" type="text" name="location" placeholder="Max 200 Characters">
+    <br>
+    <br>
+
+
+    <br> {{#if message}}
+    <div class=" error-message ">{{ message }}</div>
+    {{/if}}
+
+    <button>Create Item</button>
+
+
+</form>
+
+<br>
+<br>
+<br>
+<p>Nevermind, take me back to
+    <a href="/items ">My Items</a>
+</p>

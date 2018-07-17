@@ -1,11 +1,11 @@
-<form action="/lists/edit" method="POST" id="form-container">
+<form action="/lists/{{list.id}}" method="POST" id="form-container">
     <label for="name">Name:</label>
-    <input id="name" type="text" name="name" placeholder="List name">
+    <input id="name" type="text" name="name" value="{{list.name}}">
     <br>
     <br>
 
     <label for="location">Location:</label>
-    <input id="location" type="text" name="location" placeholder="i.e. city, state, country">
+    <input id="location" type="text" name="location" value="{{list.location.type}}">
     <br>
     <br>
     <label for="purpose">Purpose:</label>
