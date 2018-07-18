@@ -6,10 +6,20 @@
 <p>location: {{list.location}}</p>
 <p>purpose: {{list.purpose}}</p>
 <p>public: {{list.public}}</p>
-
+<a href="/lists/{{list._id}}/edit">EDIT</a>
+<br>
 <a href="/lists">My Lists</a>
 <br>
 <br>
 
-<a href="/lists/item-add/{{list._id}}">ADD AN ITEM</a>
+<h2>ITEMS: </h2>
 
+<a href="/lists/item-add/{{list._id}}">ADD AN ITEM</a>
+{{#each list.items}}
+<h3>Name: {{this.name}}</h3>
+<p>Location: {{this.location}}</p>
+<p>Category: {{this.category}}</p>
+<p>Visit Date: {{this.visitDate}}</p>
+<p>Notes: {{this.notes}}</p>
+
+{{/each}}
