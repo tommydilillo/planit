@@ -6,13 +6,41 @@ const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 const passport = require("passport");
 const ensureLogin = require("connect-ensure-login");
-const Item = require("../models/item");
-//LISTS PAGE
 
 // ADD ITEM
-router.get("/item-add", (req, res, next) => {
-  res.render("lists/item-add");
+router.get("/item-add/:id", (req, res, next) => {
+  let listId = req.params.id;
+  List.findOne({ _id: listId })
+    .then(list => {
+      console.log(list);
+      res.render("lists/item-add", { list });
+    })
+    .catch(error => {
+      console.log(error);
+      next();
+    });
 });
+
+router.post("/lists/item/add/:id", (req, res, next) => {
+  const { name, location, category, visitDate, notes } = req.body;
+  let listId = req.params.id;
+  console.log(listId);
+  List.update(
+    { _id: listId },
+    { $push: { item: { name, location, category, visitDate, notes } } }
+  )
+    .then(list => {
+      res.redirect("/lists/:id"), { list };
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
+
+// findbyIDandupdate
+
+// ----------------------------
+//LISTS PAGE
 
 router.get("/", (req, res, next) => {
   List.find()
@@ -86,19 +114,6 @@ router.post("/:id/delete", (req, res, next) => {
     })
     .next(res.redirect("/lists"));
 });
-
-// router.post("/add", (req, res, next) => {
-//   const { name, location, purpose, public } = req.body;
-//   const newList = new List({ name, location, purpose, public });
-//   newList
-//     .save()
-//     .then(list => {
-//       res.redirect("/lists");
-//     })
-//     .catch(error => {
-//       console.log(error);
-//     });
-// });
 
 // LIST DETAIL PAGE
 

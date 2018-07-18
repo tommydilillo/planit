@@ -1,8 +1,9 @@
 <h1>LIST</h1>
 
 <p>Name: {{list.name}}</p>
+
 <p>created by: {{list.list_creators.name}}</p>
-<p>location: {{list.location.type}}</p>
+<p>location: {{list.location}}</p>
 <p>purpose: {{list.purpose}}</p>
 <p>public: {{list.public}}</p>
 
@@ -10,4 +11,5 @@
 <br>
 <br>
 
-<a href="/lists/item-add">ADD AN ITEM</a>
+<a href="/lists/item-add/{{list._id}}">ADD AN ITEM</a>
+

@@ -23,15 +23,15 @@ const listSchema = new Schema(
         category: {
           type: String,
           enum: [
-            "food & drink",
+            "food + drink",
             "lodging",
             "nightlife",
             "music",
-            "culture & arts",
+            "culture + arts",
             "outdoors",
             "sports",
             "kids",
-            "festivals & fairs",
+            "festivals + fairs",
             "fun",
             "off-beat",
             "misc"
