@@ -3,7 +3,7 @@
 <h4>Add an item to list: {{ list.name}}</h4>
 {{!--
 <form action="/item/item-add/{{list._id}}" method="POST" id="form-container"> --}}
-    <form action="/lists/{{list.id}}" method="POST" id="form-container">
+    <form action="/lists/item-add/{{list._id}}" method="POST" id="form-container">
         <label for="name">Name:</label>
         <input id="name" type="text" name="name" placeholder="Item name">
         <br>

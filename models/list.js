@@ -50,7 +50,8 @@ const listSchema = new Schema(
     ]
   },
   {
-    timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" }
+    timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" },
+    usePushEach: true
   }
 );
 

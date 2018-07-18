@@ -21,16 +21,21 @@ router.get("/item-add/:id", (req, res, next) => {
     });
 });
 
-router.post("/lists/item/add/:id", (req, res, next) => {
+router.post("/item-add/:id", (req, res, next) => {
   const { name, location, category, visitDate, notes } = req.body;
   let listId = req.params.id;
-  console.log(listId);
-  List.update(
-    { _id: listId },
-    { $push: { item: { name, location, category, visitDate, notes } } }
-  )
+  console.log("listID: " + listId);
+  List.findById(listId)
     .then(list => {
-      res.redirect("/lists/:id"), { list };
+      list.items.push({ name, location, category, visitDate, notes });
+      list
+        .save()
+        .then(list => {
+          res.redirect(`/lists/${list._id}`), { list };
+        })
+        .catch(error => {
+          console.log(`Error on add item list route: ${error}`);
+        });
     })
     .catch(error => {
       console.log(error);
