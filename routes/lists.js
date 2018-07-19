@@ -41,8 +41,34 @@ router.post("/item-add/:id", (req, res, next) => {
       console.log(error);
     });
 });
+//EDIT ITEM
 
-// findbyIDandupdate
+router.post("/item-edit/:id", (req, res, next) => {
+  const { name, location, category, visitDate, notes } = req.body;
+  let itemId = req.params.id;
+  console.log("itemId: " + itemId);
+  List.findOneAndUpdate(
+    { "items._id": itemId },
+    { "items.$": { name, location, category, visitDate, notes } }
+  )
+    .then(list => {
+      // list.items
+      //   .id(itemId)
+      //   .update({ name, location, category, visitDate, notes });
+      // list
+      //   .save()
+      //   .then(list => {
+      res.redirect(`/lists/${list._id}`), { list };
+      // }
+      // )
+      // .catch(error => {
+      //   console.log(`Error on add item list route: ${error}`);
+      // });
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
 
 // ----------------------------
 //LISTS PAGE
