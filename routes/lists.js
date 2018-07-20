@@ -7,6 +7,8 @@ const bcryptSalt = 10;
 const passport = require("passport");
 const ensureLogin = require("connect-ensure-login");
 
+//ITEMS ---------------------------
+
 // ADD ITEM
 router.get("/item-add/:id", (req, res, next) => {
   let listId = req.params.id;

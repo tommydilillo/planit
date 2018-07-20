@@ -26,6 +26,7 @@
     <p>Notes: {{this.notes}}</p>
 </div>
 
+{{!-- FORM IS HIDDEN UNTIL EDIT BUTTON IS CLICKED --}}
 <form action="/lists/item-edit/{{this._id}}" method="POST" id="edit-form-{{this._id}}" style="display:none">
     <label for="name">Name:</label>
     <input id="name" type="text" name="name" value="{{this.name}}">
@@ -39,8 +40,9 @@
 
     <label for="category">Category:</label>
     <select id="category" name="category">
+        {{!-- CREATE A LOOP WITH ALL VALUES IN AN ARRAY -- for each if {{this.category}} == x instert selceted --}}
         <option value="food + drink">Food + Drink</option>
-        <option value="lodging">Lodging</option>
+        <option selected value="lodging">Lodging</option>
         <option value="nightlife">Night Life</option>
         <option value="music">Music</option>
         <option value="culture + arts">Culture + Arts</option>
@@ -69,14 +71,11 @@
     <br>
     <br>
 
-
     <br> {{#if message}}
     <div class=" error-message ">{{ message }}</div>
     {{/if}}
 
     <button>Submit Edit</button>
-
-
 </form>
 </div>
 
