@@ -21,7 +21,7 @@ const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 mongoose.Promise = Promise;
 mongoose
   .connect(
-    "mongodb://localhost/planit",
+    process.env.MONGODB_URI,
     { useMongoClient: true }
   )
   .then(() => {

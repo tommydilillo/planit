@@ -1,39 +1,42 @@
-<h2>Add a List</h2>
+<div class="col-sm-8">
+    <h2>Add a List</h2>
 
+    <form action="/lists/add" method="POST" id="form-container">
+        <label for="name">Name:</label>
+        <input id="name" type="text" name="name" placeholder="List name" required="required">
+        <br>
+        <br>
 
-<form action="/lists/add" method="POST" id="form-container">
-    <label for="name">Name:</label>
-    <input id="name" type="text" name="name" placeholder="List name" required="required">
-    <br>
-    <br>
+        <label for="location">Location:</label>
+        <input id="pac-input" type="text" name="location" placeholder="i.e. city, state, country">
+        <br>
+        <br>
+        <label for="purpose">Purpose:</label>
+        <select id="purpose" name="purpose">
+            <option value="vacation">Vacation</option>
+            <option value="staycation">Staycation</option>
+            <option value="roadtrip">Road trip</option>
+            <option value="local">Local</option>
+            <option value="other">Other</option>
+        </select>
+        <br>
+        <br>
+        <label for="public">Public List:</label>
+        <input id="public" type="radio" name="public" value="true" checked="checked">Yes</input>
+        <input id="public" type="radio" name="public" value="false">No</input>
+        <br>
+        <br> {{#if message}}
+        <div class="error-message">{{ message }}</div>
+        {{/if}}
 
-    <label for="location">Location:</label>
-    <input id="pac-input" type="text" name="location" placeholder="i.e. city, state, country">
-    <br>
-    <br>
-    <label for="purpose">Purpose:</label>
-    <select id="purpose" name="purpose">
-        <option value="vacation">Vacation</option>
-        <option value="staycation">Staycation</option>
-        <option value="roadtrip">Road trip</option>
-        <option value="local">Local</option>
-        <option value="other">Other</option>
-    </select>
-    <br>
-    <br>
-    <label for="public">Public List:</label>
-    <input id="public" type="radio" name="public" value="true" checked="checked">Yes</input>
-    <input id="public" type="radio" name="public" value="false">No</input>
-    <br>
-    <br> {{#if message}}
-    <div class="error-message">{{ message }}</div>
-    {{/if}}
-
-    <button>Create List</button>
-
-
-</form>
-
+        <button class="button-index">Create List</button>
+        <div>
+            <p></p>Nevermind, take me back to
+            <a href="/lists">My Lists</a>
+            </p>
+        </div>
+    </form>
+</div>
 <br>
 <br>
 <br>
@@ -72,8 +75,3 @@
     <span id="place-address"></span>
 </div>
 </div>
-
-
-<p>Nevermind, take me back to
-    <a href="/lists">My Lists</a>
-</p>

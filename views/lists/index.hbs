@@ -10,8 +10,7 @@
     <h3 class="list-title col-sm-12">
         <a href=" /lists/{{this._id}} ">{{this.name}}</a>
     </h3>
-    <p class="list-info">created by: {{this.list_creators.name}} || location: {{this.location}}</p>
-
+    <p class="list-info">location: {{this.location}}</p>
     <a class="d-inline" href="/lists/{{this._id}}/edit">EDIT</a>
 
     <form class="d-inline" action="/lists/{{this._id}}/delete" method="post">
@@ -20,6 +19,3 @@
     </form>
 
 </div> {{/each}} {{!-- ------------------------------ --}}
-
-
-
