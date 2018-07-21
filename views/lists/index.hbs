@@ -6,20 +6,18 @@
 </h1>
 
 {{#each lists}}
-<div class="list-block col-sm-6">
-    <h3 class="list-title">
+<div class="list-block col-sm-4">
+    <h3 class="list-title col-sm-12">
         <a href=" /lists/{{this._id}} ">{{this.name}}</a>
     </h3>
     <p class="list-info">created by: {{this.list_creators.name}} || location: {{this.location}}</p>
 
-    <a href="/lists/{{this._id}}/edit ">EDIT</a>
+    <a class="d-inline" href="/lists/{{this._id}}/edit">EDIT</a>
 
-    <form action="/lists/{{this._id}}/delete " method="post">
-        <span>
-            <button type="submit" class="delete">DELETE</button>
-        </span>
-        <input type="hidden" name="_id ">
-
+    <form class="d-inline" action="/lists/{{this._id}}/delete" method="post">
+        <button type="submit" class="delete ">DELETE</button>
+        <input type="hidden" name="_id">
     </form>
+
 
 </div> {{/each}}
