@@ -170,7 +170,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // default value for title local
-app.locals.title = "planIt";
+app.locals.title = "planit";
 
 //
 const lists = require("./routes/lists");
