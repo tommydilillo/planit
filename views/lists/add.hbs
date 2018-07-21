@@ -3,12 +3,12 @@
 
 <form action="/lists/add" method="POST" id="form-container">
     <label for="name">Name:</label>
-    <input id="name" type="text" name="name" placeholder="List name">
+    <input id="name" type="text" name="name" placeholder="List name" required="required">
     <br>
     <br>
 
     <label for="location">Location:</label>
-    <input id="location" type="text" name="location" placeholder="i.e. city, state, country">
+    <input id="pac-input" type="text" name="location" placeholder="i.e. city, state, country">
     <br>
     <br>
     <label for="purpose">Purpose:</label>
@@ -26,7 +26,7 @@
     <input id="public" type="radio" name="public" value="false">No</input>
     <br>
     <br> {{#if message}}
-    <div class= "error-message">{{ message }}</div>
+    <div class="error-message">{{ message }}</div>
     {{/if}}
 
     <button>Create List</button>
@@ -37,6 +37,43 @@
 <br>
 <br>
 <br>
+<div class="pac-card col-sm-6" id="pac-card">
+    <div>
+        <div id="title">
+            Autocomplete search
+        </div>
+        <div id="type-selector" class="pac-controls">
+            <input type="radio" name="type" id="changetype-all">
+            <label for="changetype-all">All</label>
+
+            <input type="radio" name="type" id="changetype-establishment">
+            <label for="changetype-establishment">Establishments</label>
+
+            <input type="radio" name="type" id="changetype-address">
+            <label for="changetype-address">Addresses</label>
+
+            <input type="radio" name="type" id="changetype-geocode" checked="checked">
+            <label for="changetype-geocode">Geocodes</label>
+        </div>
+        <div id="strict-bounds-selector" class="pac-controls">
+            <input type="checkbox" id="use-strict-bounds" value="">
+            <label for="use-strict-bounds">Strict Bounds</label>
+        </div>
+    </div>
+    <div id="pac-container">
+        <input id="pac-input" type="text" placeholder="Enter a location">
+    </div>
+</div>
+<div id="map"></div>
+<div id="infowindow-content">
+    <img src="" width="16" height="16" id="place-icon">
+    <span id="place-name" class="title"></span>
+    <br>
+    <span id="place-address"></span>
+</div>
+</div>
+
+
 <p>Nevermind, take me back to
     <a href="/lists">My Lists</a>
 </p>
