@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  // background-image: url("../images/logo.png");
 }
 
 a {
@@ -42,6 +43,7 @@ a {
 }
 
 .list-block {
+  // display: inline-flex;
   padding: 15px 20px;
   font-size: 22px;
   border-radius: 3px;
