@@ -5,8 +5,10 @@ const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 const passport = require("passport");
+const ObjectId = require("mongodb").ObjectId;
 const ensureLogin = require("connect-ensure-login");
 
+//
 //ITEMS ---------------------------
 
 // ADD ITEM
@@ -75,10 +77,12 @@ router.post("/item-edit/:id", (req, res, next) => {
 // ----------------------------
 //LISTS PAGE
 
-router.get("/", (req, res, next) => {
-  List.find()
+router.get("/", ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  List.find({ user: ObjectId(`${req.user._id}`) })
+    .exec()
     .then(lists => {
-      res.render("lists/index", { lists });
+      res.render("lists/index", { lists, user: req.user });
+      // if lists.user
     })
     .catch(error => {
       console.log(error);
@@ -87,13 +91,14 @@ router.get("/", (req, res, next) => {
 });
 
 // ADD A NEW LIST
-router.get("/add", (req, res, next) => {
-  res.render("lists/add");
+router.get("/add", ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  res.render("lists/add", { user: req.user });
 });
 
 router.post("/add", (req, res, next) => {
   const { name, location, purpose, public } = req.body;
-  const newList = new List({ name, location, purpose, public });
+  const user = req.user._id;
+  const newList = new List({ name, user, location, purpose, public });
   newList
     .save()
     .then(list => {
@@ -121,10 +126,10 @@ router.get("/:id/edit", (req, res, next) => {
 });
 
 router.post("/:id", (req, res, next) => {
-  const { name, location, purpose, public } = req.body;
+  const { name, user, location, purpose, public } = req.body;
   List.update(
     { _id: req.params.id },
-    { $set: { name, location, purpose, public } }
+    { $set: { name, user, location, purpose, public } }
   )
     .then(list => {
       res.redirect("/lists");

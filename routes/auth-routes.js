@@ -6,6 +6,7 @@ const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 const passport = require("passport");
 const ensureLogin = require("connect-ensure-login");
+const List = require("../models/list");
 
 //SIGNUP ROUTES
 
@@ -118,7 +119,14 @@ authRoutes.get("/logout", (req, res) => {
 
 //HOME PAGE
 authRoutes.get("/home", ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  res.render("home", { user: req.user });
+  List.find({ public: "true" })
+    .then(lists => {
+      res.render("home", { lists, user: req.user });
+    })
+    .catch(error => {
+      console.log(error);
+      next();
+    });
 });
 
 module.exports = authRoutes;

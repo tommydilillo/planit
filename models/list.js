@@ -5,9 +5,14 @@ const ObjectId = Schema.ObjectId;
 const listSchema = new Schema(
   {
     name: String,
-    list_creator: [{ type: ObjectId, ref: "User" }],
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true
+    },
     location: String,
     coordinates: [String],
+    // coordinates: { type: { type: String }, coordinates: [Number] },
     purpose: {
       type: String,
       enum: ["vacation", "staycation", "roadtrip", "local", "other"]

@@ -1,13 +1,25 @@
 <h1>
+    Welcome to planIt, {{user.username}}.</h1>
 
-    Home page</h1>
-<p>Welcome to planIt, {{user.username}}.</p>
-
-<br>
-<a href="/lists">My Lists</a>
-
-
+<h3>
+    <a href="/lists">My Lists</a>
+</h3>
 
 <br>
 <br>
-<a href="/user/{{user.username}}">My Profile</a>
+<h3>
+    <a href="/user/{{user.username}}">My Profile</a>
+</h3>
+<br>
+<br>
+
+<h3>PUBLIC LISTS:</h3>
+
+{{#each lists }}
+<div class="list-block col-sm-6">
+    <h3 class="list-title col-sm-12">
+        <a href="/lists/{{this._id}} ">{{this.name}}</a>
+    </h3>
+    <h5 class="list-info">location: {{this.location}}</h5>
+
+</div> {{/each}}

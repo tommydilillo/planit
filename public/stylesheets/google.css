@@ -4,7 +4,10 @@
 #map {
   height: 100%;
 }
-
+#map-list-detail {
+  height: 100%;
+  width: 100%;
+}
 /* Optional: Makes the sample page fill the window. */
 
 html,

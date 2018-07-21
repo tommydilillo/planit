@@ -1,17 +1,29 @@
-<div class="list-block col-sm-6">
-    <p>List:
+<div class="list-block row">
+    <div class="list-detail-info col-sm-5">
+        <p>List:
 
-        <span>{{list.name}} </span>
-    </p>
-    <div>created by: {{list.list_creators.name}}</div>
-    <div>location: {{list.location}}</div>
-    <div>purpose: {{list.purpose}}</div>
-    <div>public: {{list.public}}</div>
-    <a href="/lists/{{list._id}}/edit">EDIT</a>
+            <span>{{list.name}} </span>
+        </p>
+        <div>created by: {{list.list_creator}}</div>
+        <div>location: {{list.location}}</div>
+        <div>purpose: {{list.purpose}}</div>
+        <div>public: {{list.public}}</div>
+        <a href="/lists/{{list._id}}/edit">EDIT</a>
+    </div>
+
+    <div class="col-sm-7" id="map"></div>
+    {{!-- styling for the map --}}
+    <style>
+        #map {
+            height: 200px;
+            width: 100%;
+        }
+    </style>
 </div>
+
 <a href="/lists">My Lists</a>
 <br>
-<br>
+
 
 <h2>ITEMS: </h2>
 

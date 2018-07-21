@@ -1,16 +1,17 @@
 <h1>
-    All Lists --
-    <span>
-        <a href="/lists/add">CREATE A NEW LIST</a>
-    </span>
+    My Lists
 </h1>
 
-{{#each lists}}
-<div class="list-block col-sm-4">
+<h2>
+    <a href="/lists/add">CREATE A NEW LIST</a>
+</h2>
+
+{{#each lists }}
+<div class="list-block col-sm-6">
     <h3 class="list-title col-sm-12">
-        <a href=" /lists/{{this._id}} ">{{this.name}}</a>
+        <a href="/lists/{{this._id}} ">{{this.name}}</a>
     </h3>
-    <p class="list-info">location: {{this.location}}</p>
+    <h5 class="list-info">location: {{this.location}}</h5>
     <a class="d-inline" href="/lists/{{this._id}}/edit">EDIT</a>
 
     <form class="d-inline" action="/lists/{{this._id}}/delete" method="post">

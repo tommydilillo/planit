@@ -69,7 +69,7 @@ a {
 
 .list-title {
   color: black;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
 }
 
@@ -77,6 +77,12 @@ a {
   font-style: italic;
   font-size: 12px;
 }
+
+//LIST- DETAIL SPECIFIC CSS
+// .list-detail-map {
+//   height: 200px;
+//   width: 100%;
+// }
 
 .delete {
   background-color: rgba(255, 0, 0, 0.3);

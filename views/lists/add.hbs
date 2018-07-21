@@ -4,11 +4,29 @@
     <form action="/lists/add" method="POST" id="form-container">
         <label for="name">Name:</label>
         <input id="name" type="text" name="name" placeholder="List name" required="required">
-        <br>
-        <br>
+        <br> {{!-- hidden user form --}}
+        <input id="list_creator" type="hidden" name="list_creator" value="{{user.username}}" required="required">
+
 
         <label for="location">Location:</label>
         <input id="pac-input" type="text" name="location" placeholder="i.e. city, state, country">
+        <div id="type-selector" class="pac-controls">
+            <input type="radio" name="type" id="changetype-all">
+            <label for="changetype-all">All</label>
+
+            <input type="radio" name="type" id="changetype-establishment">
+            <label for="changetype-establishment">Establishments</label>
+
+            <input type="radio" name="type" id="changetype-address">
+            <label for="changetype-address">Addresses</label>
+
+            <input type="radio" name="type" id="changetype-geocode" checked="checked">
+            <label for="changetype-geocode">Geocodes</label>
+        </div>
+        <div id="strict-bounds-selector" class="pac-controls">
+            <input type="checkbox" id="use-strict-bounds" value="">
+            <label for="use-strict-bounds">Strict Bounds</label>
+        </div>
         <br>
         <br>
         <label for="purpose">Purpose:</label>
@@ -38,40 +56,15 @@
     </form>
 </div>
 <br>
-<br>
-<br>
-<div class="pac-card col-sm-6" id="pac-card">
-    <div>
-        <div id="title">
-            Autocomplete search
-        </div>
-        <div id="type-selector" class="pac-controls">
-            <input type="radio" name="type" id="changetype-all">
-            <label for="changetype-all">All</label>
+<br> {{!-- Google Maps --}}
+<div class="col-sm-12" id="map">
 
-            <input type="radio" name="type" id="changetype-establishment">
-            <label for="changetype-establishment">Establishments</label>
-
-            <input type="radio" name="type" id="changetype-address">
-            <label for="changetype-address">Addresses</label>
-
-            <input type="radio" name="type" id="changetype-geocode" checked="checked">
-            <label for="changetype-geocode">Geocodes</label>
-        </div>
-        <div id="strict-bounds-selector" class="pac-controls">
-            <input type="checkbox" id="use-strict-bounds" value="">
-            <label for="use-strict-bounds">Strict Bounds</label>
-        </div>
+    <div id="map"></div>
+    <div id="infowindow-content">
+        <img src="" width="16" height="16" id="place-icon">
+        <span id="place-name" class="title"></span>
+        <br>
+        <span id="place-address"></span>
     </div>
-    <div id="pac-container">
-        <input id="pac-input" type="text" placeholder="Enter a location">
-    </div>
-</div>
-<div id="map"></div>
-<div id="infowindow-content">
-    <img src="" width="16" height="16" id="place-icon">
-    <span id="place-name" class="title"></span>
-    <br>
-    <span id="place-address"></span>
 </div>
 </div>
