@@ -1,29 +1,67 @@
-<form action="/lists/{{list.id}}" method="POST" id="form-container">
-    <label for="name">Name:</label>
-    <input id="name" type="text" name="name" value="{{list.name}}">
-    <br>
-    <br>
+<div class="col-sm-8">
+    <h2>Edit a List</h2>
 
-    <label for="location">Location:</label>
-    <input id="location" type="text" name="location" value="{{list.location.type}}">
-    <br>
-    <br>
-    <label for="purpose">Purpose:</label>
-    <select id="purpose" name="password">
-        <option value="vacation">Vacation</option>
-        <option value="staycation">Staycation</option>
-        <option value="roadtrip">Road trip</option>
-        <option value="local">Local</option>
-        <option value="other">Other</option>
-    </select>
-    <br>
-    <br>
-    <label for="public">Public List:</label>
-    <input id="public" type="radio" name="public" value="true" checked="checked">Yes</input>
-    <input id="public" type="radio" name="public" value="false">No</input>
-    <br>
-    <br> {{#if message}}
-    <div class="error-message">{{ message }}</div>
-    {{/if}}
+    <form action="/lists/{{list.id}}" method="POST" id="form-container">
+        <label for="name">Name:</label>
+        <input id="name" type="text" name="name" value="{{list.name}}">
+        <br>
+        <br>
 
-    <button>Edit List</button>
+
+        <label for="location">Location:</label>
+        <input id="pac-input" type="text" name="location" value="{{list.location}}">
+        <div id="type-selector" class="pac-controls">
+            <input type="radio" name="type" id="changetype-all">
+            <label for="changetype-all">All</label>
+
+            <input type="radio" name="type" id="changetype-establishment">
+            <label for="changetype-establishment">Establishments</label>
+
+            <input type="radio" name="type" id="changetype-address">
+            <label for="changetype-address">Addresses</label>
+
+            <input type="radio" name="type" id="changetype-geocode" checked="checked">
+            <label for="changetype-geocode">Geocodes</label>
+        </div>
+        <div id="strict-bounds-selector" class="pac-controls">
+            <input type="checkbox" id="use-strict-bounds" value="">
+            <label for="use-strict-bounds">Strict Bounds</label>
+        </div>
+
+
+        {{!--
+        <label for="location">Location:</label>
+        <input id="location" type="text" name="location" value="{{list.location.type}}"> --}}
+        <br>
+        <br>
+        <label for="purpose">Purpose:</label>
+        <select id="purpose" name="purpose">
+            <option value="vacation">Vacation</option>
+            <option value="staycation">Staycation</option>
+            <option value="roadtrip">Road trip</option>
+            <option value="local">Local</option>
+            <option value="other">Other</option>
+        </select>
+        <br>
+        <br>
+        <label for="public">Public List:</label>
+        <input id="public" type="radio" name="public" value="true" checked="checked">Yes</input>
+        <input id="public" type="radio" name="public" value="false">No</input>
+        <br>
+        <br> {{#if message}}
+        <div class="error-message">{{ message }}</div>
+        {{/if}}
+
+        <button>Edit List</button>
+
+</div>
+<div class="col-sm-12" id="map">
+
+    <div id="map"></div>
+    <div id="infowindow-content">
+        <img src="" width="16" height="16" id="place-icon">
+        <span id="place-name" class="title"></span>
+        <br>
+        <span id="place-address"></span>
+    </div>
+</div>
