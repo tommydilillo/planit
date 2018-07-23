@@ -14,7 +14,7 @@
     <h5 class="list-info">location: {{this.location}}</h5>
     <h5 class="list-info"># of items: {{this.items.length}}</h5>
 
-    <a class="d-inline" href="/lists/{{this._id}}/edit">EDIT</a>
+    <a class="btn-secondary d-inline" href="/lists/{{this._id}}/edit">EDIT</a>
 
 
 
@@ -22,6 +22,7 @@
 
     <form class="d-inline" action="/lists/{{this._id}}/delete" method="post">
         <button type="submit" class="delete">DELETE</button>
+
         <input type="hidden" name="_id">
     </form>
 
