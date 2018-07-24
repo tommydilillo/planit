@@ -32,6 +32,27 @@ function initMap() {
     anchorPoint: new google.maps.Point(0, -29)
   });
 
+  /// ADDING MARKERS
+  const markers = [];
+  console.log(lists);
+
+  function listPlaces(lists) {
+    lists.forEach(lists => {
+      const center = {
+        lat: lists.lat,
+        lng: lists.lng
+      };
+      const pin = new google.maps.Marker({
+        position: center,
+        map: map,
+        title: lists.name,
+        anchorPoint: new google.maps.Point(0, -29)
+      });
+      markers.push(pin);
+    });
+  }
+  console.log(markers);
+
   autocomplete.addListener("place_changed", function() {
     infowindow.close();
     marker.setVisible(false);
@@ -81,7 +102,7 @@ function initMap() {
     //infowindowContent.children["place-icon"].src = place.icon;
     // infowindowContent.children["place-name"].textContent = place.name;
     // infowindowContent.children["place-address"].textContent = address;
-    //infowindow.open(map, marker);
+    // infowindow.open(map, marker);
   });
 
   // Sets a listener on a radio button to change the filter type on Places
@@ -106,4 +127,3 @@ function initMap() {
     });
 }
 // ------------------------
-
