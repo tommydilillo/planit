@@ -18,6 +18,18 @@ a {
   height: 20px;
 }
 
+.home-sub-header {
+  width: 100%;
+  border: red;
+  padding: 20px;
+  background-image: src= "../images/logo.png ";
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 500;
+}
+
 .button-index {
   padding: 15px 20px;
   font-size: 22px;
@@ -26,6 +38,16 @@ a {
   text-align: center;
   /* float: right; */
   margin: 5px 10px;
+}
+
+.button-home {
+  padding: 15px 20px;
+  font-size: 22px;
+  border-radius: 3px;
+  font-weight: bold;
+  background-color: teal;
+  color: white;
+  text-align: center;
 }
 
 .index {
@@ -44,13 +66,20 @@ a {
 
 .list-block {
   // display: inline-flex;
-  padding: 15px 20px;
+  padding: 15px 10px;
   font-size: 22px;
   border-radius: 3px;
-  // border-color: darkblue;
-  // border-style: solid;
-  // border: 20px;
-  // font-weight: bold;
+  width: 360px;
+  text-align: left;
+  margin: 10px 10px;
+  background-color: lightyellow;
+}
+
+.list-header {
+  // display: inline-flex;
+  padding: 15px 10px;
+  font-size: 22px;
+  border-radius: 3px;
   text-align: left;
   margin: 10px 10px;
   background-color: lightyellow;
@@ -87,5 +116,9 @@ a {
 // }
 
 .delete {
-  background-color: rgba(255, 0, 0, 0.3);
+  background-color: rgba(247, 62, 62, 0.726);
+}
+
+.form {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }

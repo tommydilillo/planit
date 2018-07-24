@@ -36,6 +36,16 @@ function initMap() {
     infowindow.close();
     marker.setVisible(false);
     var place = autocomplete.getPlace();
+    //GETS LATITUDE AND LONGITUDE FROM AUTOCOMPLETE
+    console.log("TEST", place);
+    let latitude = place.geometry.location.lat();
+    let longitude = place.geometry.location.lng();
+    console.log("latitude: ", latitude);
+    console.log("longitude: ", longitude);
+    //Updates hidden form value to latitude and longitude
+    document.getElementById("lat").setAttribute("value", latitude);
+    document.getElementById("lng").setAttribute("value", longitude);
+
     if (!place.geometry) {
       // User entered the name of a Place that was not suggested and
       // pressed the Enter key, or the Place Details request failed.
@@ -68,10 +78,10 @@ function initMap() {
       ].join(" ");
     }
 
-    infowindowContent.children["place-icon"].src = place.icon;
-    infowindowContent.children["place-name"].textContent = place.name;
-    infowindowContent.children["place-address"].textContent = address;
-    infowindow.open(map, marker);
+    //infowindowContent.children["place-icon"].src = place.icon;
+    // infowindowContent.children["place-name"].textContent = place.name;
+    // infowindowContent.children["place-address"].textContent = address;
+    //infowindow.open(map, marker);
   });
 
   // Sets a listener on a radio button to change the filter type on Places

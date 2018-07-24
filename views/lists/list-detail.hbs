@@ -1,11 +1,8 @@
 <div class="list-block row">
-    <div class="list-detail-info col-sm-5">
-        <p>List:
+    <div class="list-header">
+        <h3>{{list.name}}
+        </h3>
 
-            <span>{{list.name}} </span>
-        </p>
-        {{!--
-        <div>created by: {{list.user}}</div> --}}
         <div>location: {{list.location}}</div>
         <div>purpose: {{list.purpose}}</div>
         <div>public: {{list.public}}</div>
@@ -22,13 +19,12 @@
     </style>
 </div>
 
-<a href="/lists">My Lists</a>
-<br>
 
+<div>
+    <h2>ITEMS: </h2>
+    <a class="btn-success button-index" href="/lists/item-add/{{list._id}}">Add an Item</a>
+</div>
 
-<h2>ITEMS: </h2>
-
-<a href="/lists/item-add/{{list._id}}">ADD AN ITEM</a>
 
 {{#each list.items}}
 <div class="item-block col-sm-4">

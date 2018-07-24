@@ -2,6 +2,9 @@
     <h2>Add a List</h2>
 
     <form action="/lists/add" method="POST" id="form-container">
+        <input id="lat" type="hidden" name="lat">
+        <input id="lng" type="hidden" name="lng">
+
         <label for="name">Name:</label>
         <input id="name" type="text" name="name" placeholder="List name" required="required">
         <br>
@@ -9,7 +12,7 @@
 
         <label for="location">Location:</label>
         <input id="pac-input" type="text" name="location" placeholder="i.e. city, state, country">
-        <div id="type-selector" class="pac-controls">
+        <div id="type-selector" class="pac-controls form">
             <input type="radio" name="type" id="changetype-all">
             <label for="changetype-all">All</label>
 
@@ -27,7 +30,7 @@
             <label for="use-strict-bounds">Strict Bounds</label>
         </div>
         <br>
-        <br>
+
         <label for="purpose">Purpose:</label>
         <select id="purpose" name="purpose">
             <option value="vacation">Vacation</option>
@@ -36,7 +39,6 @@
             <option value="local">Local</option>
             <option value="other">Other</option>
         </select>
-        <br>
         <br>
         <label for="public">Public List:</label>
         <input id="public" type="radio" name="public" value="true" checked="checked">Yes</input>

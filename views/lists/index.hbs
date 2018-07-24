@@ -1,13 +1,15 @@
-<h1>
-    My Lists
-</h1>
+<h2 class="title">
+    My Lists -
 
-<h2>
-    <a href="/lists/add">CREATE A NEW LIST</a>
+    <span>
+        <a class="btn-primary button-home" href="/lists/add ">Create a new list</a>
+
+    </span>
+
 </h2>
-
-{{#each lists }}
-<div class="list-block col-sm-6">
+<br>
+<br> {{#each lists }}
+<div class="list-block">
     <h3 class="list-title col-sm-12">
         <a href="/lists/{{this._id}}">{{this.name}}</a>
     </h3>
@@ -21,9 +23,73 @@
 
 
     <form class="d-inline" action="/lists/{{this._id}}/delete" method="post">
-        <button type="submit" class="delete">DELETE</button>
+        <button type="submit " class="delete">DELETE</button>
 
         <input type="hidden" name="_id">
     </form>
 
-</div> {{/each}} {{!-- ------------------------------ --}}
+</div> {{/each}} {{!-- ------------------------------ --}} {{!--
+<style>
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+
+    #map {
+        height: 100%;
+    }
+
+    /* Optional: Makes the sample page fill the window. */
+
+    html,
+    body {
+        height: 90%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto', 'sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+    }
+</style>
+
+<div id="floating-panel">
+    <input id="address" type="textbox" value="Sydney, NSW">
+    <input id="submit" type="button" value="Geocode">
+</div>
+<div id="map"></div>
+<script>
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 8,
+            center: { lat: -34.397, lng: 150.644 }
+        });
+        var geocoder = new google.maps.Geocoder();
+
+        document.getElementById('submit').addEventListener('click', function () {
+            geocodeAddress(geocoder, map);
+        });
+    }
+
+    function geocodeAddress(geocoder, resultsMap) {
+        var address = document.getElementById('address').value;
+        geocoder.geocode({ 'address': address }, function (results, status) {
+            if (status === 'OK') {
+                resultsMap.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: resultsMap,
+                    position: results[0].geometry.location
+                });
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+    } --}}

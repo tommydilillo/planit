@@ -19,9 +19,9 @@ body {
 }
 
 #description {
-  font-family: Roboto;
+  /* font-family: Roboto;
   font-size: 15px;
-  font-weight: 300;
+  font-weight: 300; */
 }
 
 #infowindow-content .title {
@@ -44,7 +44,7 @@ body {
   outline: none;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   background-color: #fff;
-  font-family: Roboto;
+  /* font-family: Roboto; */
 }
 
 #pac-container {
@@ -58,16 +58,16 @@ body {
 }
 
 .pac-controls label {
-  font-family: Roboto;
-  font-size: 13px;
-  font-weight: 300;
+  /* font-family: Roboto; */
+  /* font-size: 13px; */
+  /* font-weight: 300; */
 }
 
 #pac-input {
   background-color: #fff;
-  font-family: Roboto;
+  /* font-family: Roboto;
   font-size: 15px;
-  font-weight: 300;
+  font-weight: 300; */
   margin-left: 12px;
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
