@@ -11,7 +11,8 @@ const listSchema = new Schema(
       required: true
     },
     location: String,
-    coordinates: [String],
+    lat: Number,
+    lng: Number,
     // coordinates: { type: { type: String }, coordinates: [Number] },
     purpose: {
       type: String,

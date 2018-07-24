@@ -14,10 +14,10 @@ function showForm(hideButton, displayForm, hidebutton2, hidebutton3) {
   Form.style = "";
 }
 
-document.getElementById("lat").setAttribute("value", latitude);
-document.getElementById("lng").setAttribute("value", latitude);
+// document.getElementById("lat").setAttribute("value", latitude);
+// document.getElementById("lng").setAttribute("value", latitude);
 
-console.log(geometry.location.lat());
-// let longitude = geometry.location.lat();
-console.log(latitude);
-console.log(longitude);
+// console.log(geometry.location.lat());
+// // let longitude = geometry.location.lat();
+// console.log(latitude);
+// console.log(longitude);

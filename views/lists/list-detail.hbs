@@ -4,6 +4,7 @@
         </h3>
 
         <div>location: {{list.location}}</div>
+        <p>lat,long: {{list.lat}},{{list.lng}}</p>
         <div>purpose: {{list.purpose}}</div>
         <div>public: {{list.public}}</div>
         <a href="/lists/{{list._id}}/edit">EDIT</a>
@@ -32,7 +33,10 @@
     <div id="{{this._id}}">
         <h3>Name: {{this.name}}</h3>
         <button onclick="showForm('{{this._id}}', 'edit-form-{{this._id}}')">Edit Item</button>
+        {{!--
         <p>Location: {{this.location}}</p>
+        <p>Latitude: {{this.lat}}</p> --}}
+        <p>Longitude: {{this.location}}</p>
         <p>Category: {{this.category}}</p>
         <p>Visit Date: {{this.visitDate}}</p>
         <p>Notes: {{this.notes}}</p>

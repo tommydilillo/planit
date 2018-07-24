@@ -105,3 +105,5 @@ function initMap() {
       autocomplete.setOptions({ strictBounds: this.checked });
     });
 }
+// ------------------------
+

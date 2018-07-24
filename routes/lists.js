@@ -81,8 +81,9 @@ router.get("/", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   List.find({ user: ObjectId(`${req.user._id}`) })
     .exec()
     .then(lists => {
+      console.log(lists);
+
       res.render("lists/index", { lists, user: req.user });
-      // if lists.user
     })
     .catch(error => {
       console.log(error);
@@ -96,9 +97,9 @@ router.get("/add", ensureLogin.ensureLoggedIn(), (req, res, next) => {
 });
 
 router.post("/add", (req, res, next) => {
-  const { name, location, purpose, public } = req.body;
+  const { name, location, lat, lng, purpose, public } = req.body;
   const user = req.user._id;
-  const newList = new List({ name, user, location, purpose, public });
+  const newList = new List({ name, user, location, lat, lng, purpose, public });
   newList
     .save()
     .then(list => {
