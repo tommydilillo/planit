@@ -18,6 +18,7 @@ const flash = require("connect-flash");
 const FbStrategy = require("passport-facebook").Strategy;
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 
+
 mongoose.Promise = Promise;
 mongoose
   .connect(
