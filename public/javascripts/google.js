@@ -32,27 +32,6 @@ function initMap() {
     anchorPoint: new google.maps.Point(0, -29)
   });
 
-  /// ADDING MARKERS
-  const markers = [];
-  console.log(lists);
-
-  function listPlaces(lists) {
-    lists.forEach(lists => {
-      const center = {
-        lat: lists.lat,
-        lng: lists.lng
-      };
-      const pin = new google.maps.Marker({
-        position: center,
-        map: map,
-        title: lists.name,
-        anchorPoint: new google.maps.Point(0, -29)
-      });
-      markers.push(pin);
-    });
-  }
-  console.log(markers);
-
   autocomplete.addListener("place_changed", function() {
     infowindow.close();
     marker.setVisible(false);
@@ -127,3 +106,58 @@ function initMap() {
     });
 }
 // ------------------------
+
+//WORKING ON AXIOS REQUEST FOR DATA
+
+window.onload = () => {
+  var listId = document.getElementById("listName").getAttribute("data-id");
+  var url = `http://localhost:3000/lists/${listId}`;
+  console.log("listID:", listId); //WORKING:listId shows up.
+  axios
+    .get(url)
+    .then(response => {
+      const list = response.data.list; // list is undefined / response.data shows up
+      console.log("list", response.data);
+      const position = {
+        lat: list.lat, // works with hardcoding #s. but not accessing lat, lng.
+        lng: list.lng
+      };
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 5,
+        center: position
+      });
+      const marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        title: lists.name
+      });
+      console.log(marker);
+      console.log("title", title);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
+
+/// ADDING MARKERS
+
+// const markers = [];
+// console.log(lists);
+
+// function listPlaces(lists) {
+//   lists.forEach(lists => {
+//     const center = {
+//       lat: lists.lat,
+//       lng: lists.lng
+//     };
+//     const pin = new google.maps.Marker({
+//       position: center,
+//       map: map,
+//       title: lists.name,
+//       anchorPoint: new google.maps.Point(0, -29)
+//     });
+//     markers.push(pin);
+//   });
+// }
+
+// console.log(markers);
