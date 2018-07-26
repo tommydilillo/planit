@@ -78,10 +78,10 @@ function initMap() {
       ].join(" ");
     }
 
-    //infowindowContent.children["place-icon"].src = place.icon;
-    // infowindowContent.children["place-name"].textContent = place.name;
-    // infowindowContent.children["place-address"].textContent = address;
-    // infowindow.open(map, marker);
+    infowindowContent.children["place-icon"].src = place.icon;
+    infowindowContent.children["place-name"].textContent = place.name;
+    infowindowContent.children["place-address"].textContent = address;
+    infowindow.open(map, marker);
   });
 
   // Sets a listener on a radio button to change the filter type on Places
@@ -109,37 +109,37 @@ function initMap() {
 
 //WORKING ON AXIOS REQUEST FOR DATA
 
-window.onload = () => {
-  var listId = document.getElementById("listName").getAttribute("data-id");
-  var url = `http://localhost:3000/lists/${listId}`;
-  console.log("listID:", listId); //WORKING:listId shows up.
-  axios
-    .get(url)
-    .then(response => {
-      const list = response.data.list; // list is undefined / response.data shows up
-      console.log("list", response.data);
-      const position = {
-        lat: list.lat, // works with hardcoding #s. but not accessing lat, lng.
-        lng: list.lng
-      };
-      const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 5,
-        center: position
-      });
-      const marker = new google.maps.Marker({
-        position: position,
-        map: map,
-        title: lists.name
-      });
-      console.log(marker);
-      console.log("title", title);
-    })
-    .catch(error => {
-      console.log(error);
-    });
-};
+// window.onload = () => {
+//   var listId = document.getElementById("listName").getAttribute("data-id");
+//   var url = `http://localhost:3000/lists/${listId}`;
+//   console.log("listID:", listId); //WORKING:listId shows up.
+//   axios
+//     .get(url)
+//     .then(response => {
+//       const list = response.data.list; // list is undefined / response.data shows up
+//       console.log("list", response.data);
+//       const position = {
+//         lat: list.lat, // works with hardcoding #s. but not accessing lat, lng.
+//         lng: list.lng
+//       };
+//       const map = new google.maps.Map(document.getElementById("map"), {
+//         zoom: 5,
+//         center: position
+//       });
+//       const marker = new google.maps.Marker({
+//         position: position,
+//         map: map,
+//         title: lists.name
+//       });
+//       console.log(marker);
+//       console.log("title", title);
+//     })
+//     .catch(error => {
+//       console.log(error);
+//     });
+// };
 
-/// ADDING MARKERS
+// / ADDING MARKERS
 
 // const markers = [];
 // console.log(lists);
@@ -147,8 +147,8 @@ window.onload = () => {
 // function listPlaces(lists) {
 //   lists.forEach(lists => {
 //     const center = {
-//       lat: lists.lat,
-//       lng: lists.lng
+//       lat: 30,
+//       lng: 30
 //     };
 //     const pin = new google.maps.Marker({
 //       position: center,

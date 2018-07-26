@@ -2,7 +2,7 @@
        * element that contains the map. */
 
 #map {
-  height: 100%;
+  height: 300px;
 }
 #map-list-detail {
   height: 100%;
@@ -10,19 +10,11 @@
 }
 /* Optional: Makes the sample page fill the window. */
 
-html,
-body {
-  height: 75%;
-  margin: 0;
-  padding: 0;
-  width: 90%;
-}
-
-#description {
+/* #description {
   /* font-family: Roboto;
   font-size: 15px;
   font-weight: 300; */
-}
+/* } */
 
 #infowindow-content .title {
   font-weight: bold;
@@ -57,11 +49,11 @@ body {
   padding: 5px 11px;
 }
 
-.pac-controls label {
+/* .pac-controls label {
   /* font-family: Roboto; */
-  /* font-size: 13px; */
-  /* font-weight: 300; */
-}
+/* font-size: 13px; */
+/* font-weight: 300; */
+/* } */
 
 #pac-input {
   background-color: #fff;

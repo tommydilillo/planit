@@ -1,17 +1,22 @@
-<div class="col-sm-8">
+<div class="center">
     <h2>Add a List</h2>
 
     <form action="/lists/add" method="POST" id="form-container">
+
         <input id="lat" type="hidden" name="lat" value="2">
         <input id="lng" type="hidden" name="lng" value="1">
 
-        <label for="name">Name:</label>
-        <input id="name" type="text" name="name" placeholder="List name" required="required">
+        <div class="input-group">
+
+            <label for="name">Name:</label>
+            <input id="name" type="text" name="name" placeholder="List name" required="required" class="form-control">
+        </div>
         <br>
 
-
-        <label for="location">Location:</label>
-        <input id="pac-input" type="text" name="location" placeholder="i.e. city, state, country">
+        <div class="input-group">
+            <label for="location">Location:</label>
+            <input id="pac-input" type="text" name="location" placeholder="i.e. city, state, country" class="form-control">
+        </div>
         <div id="type-selector" class="pac-controls form">
             <input type="radio" name="type" id="changetype-all">
             <label for="changetype-all">All</label>
@@ -30,15 +35,17 @@
             <label for="use-strict-bounds">Strict Bounds</label>
         </div>
         <br>
+        <div class="input-group">
 
-        <label for="purpose">Purpose:</label>
-        <select id="purpose" name="purpose">
-            <option value="vacation">Vacation</option>
-            <option value="staycation">Staycation</option>
-            <option value="roadtrip">Road trip</option>
-            <option value="local">Local</option>
-            <option value="other">Other</option>
-        </select>
+            <label for="purpose">Purpose:</label>
+            <select id="purpose" name="purpose" class="form-control">
+                <option value="vacation">Vacation</option>
+                <option value="staycation">Staycation</option>
+                <option value="roadtrip">Road trip</option>
+                <option value="local">Local</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
         <br>
         <label for="public">Public List:</label>
         <input id="public" type="radio" name="public" value="true" checked="checked">Yes</input>
@@ -50,6 +57,7 @@
 
         <button class="button-index">Create List</button>
         <div>
+
             <p></p>Nevermind, take me back to
             <a href="/lists">My Lists</a>
             </p>
@@ -59,7 +67,6 @@
 <br>
 <br> {{!-- Google Maps --}}
 <div class="col-sm-12" id="map">
-
     <div id="map"></div>
     <div id="infowindow-content">
         <img src="" width="16" height="16" id="place-icon">

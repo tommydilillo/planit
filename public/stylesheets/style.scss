@@ -1,11 +1,27 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   // background-image: url("../images/logo.png");
 }
 
 a {
   color: #00b7ff;
+}
+
+.container {
+  margin: 0 20px;
+}
+.center {
+  margin: 20px auto;
+  width: 80%;
+  // border: 3px solid green;
+  padding: 10px;
+}
+
+.login {
+  margin: 20px auto;
+  width: 80%;
+  border: 3px solid lightgrey;
+  padding: 30px;
 }
 
 .logo2 {

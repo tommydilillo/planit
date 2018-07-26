@@ -1,46 +1,60 @@
-<h2>Signup</h2>
+<div class="login">
 
-<form action="/signup" method="POST" id="form-container">
-    <label for="username">Username</label>
-    <input id="username" type="text" name="username" placeholder="Your username">
-    <br>
-    <br>
-    <label for="password">Password</label>
-    <input id="password" type="password" name="password" placeholder="Your password">
-    <br>
-    <br>
+    <h2>Signup</h2>
 
-    <label for="email">Email</label>
-    <input id="email" type="text" name="email" placeholder="Email Required">
-    <br>
-    <br>
-    <label for="age">Age</label>
-    <input id="age" type="text" name="age" placeholder="age">
-    <br>
-    <br>
+    <form action="/signup" method="POST" id="form-container">
+        <div class="input-group">
+            <label for="username">Username </label>
+            <input id="username" type="text" name="username" placeholder="Your username" class="form-control">
+        </div>
+        <br>
+        <br>
+        <div class="input-group">
+            <label for="password">Password </label>
+            <input id="password" type="password" name="password" placeholder="Your password" class="form-control">
+        </div>
+        <br>
+        <br>
+        <div class="input-group">
+            <label for="email">Email </label>
+            <input id="email" type="text" name="email" placeholder="Email Required" class="form-control">
+        </div>
+        <br>
+        <br>
+        <div class="input-group">
+            <label for="age">Age</label>
+            <input id="age" type="text" name="age" placeholder="age" class="form-control">
+        </div>
+        <br>
+        <br>
+        <div class="input-group">
+            <label for="city">Home City</label>
+            <input id="city" type="text" name="city" placeholder="Miami" class="form-control">
+        </div>
+        <br>
+        <br>
+        <div class="input-group">
+            <label for="state">Home State</label>
+            <input id="state" type="text" name="state" placeholder="Miami" class="form-control">
+        </div>
+        <br>
+        <br>
+        <div class="input-group">
+            <label for="country">Home Country</label>
+            <input id="country" type="text" name="country" placeholder="USA" class="form-control">
+        </div>
+        <br>
+        <br> {{#if message}}
+        <div class="error-message">{{ message }}</div>
+        {{/if}}
 
-    <label for="city">Home City</label>
-    <input id="city" type="text" name="city" placeholder="Miami">
-    <br>
-    <br>
+        <button class="button-index" type="submit">Create an Account</button>
+        <div>
+    </form>
 
-    <label for="state">Home State</label>
-    <input id="state" type="text" name="state" placeholder="Miami">
-    <br>
-    <br>
+    <p class="account-message">
+        Do you already have an account?
+        <a href="/login">Login</a>
+    </p>
 
-    <label for="country">Home Country</label>
-    <input id="country" type="text" name="country" placeholder="USA" <br>
-    <br>
-    <br> {{#if message}}
-    <div class="error-message">{{ message }}</div>
-    {{/if}}
-
-    <button class="button-index" type="submit">Create an Account</button>
-    <div>
-</form>
-
-<p class="account-message">
-    Do you already have an account?
-    <a href="/login">Login</a>
-</p>
+    </div>

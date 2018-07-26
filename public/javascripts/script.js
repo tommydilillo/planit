@@ -18,6 +18,7 @@ function showForm(hideButton, displayForm, hidebutton2, hidebutton3) {
 // document.getElementById("lng").setAttribute("value", latitude);
 
 // console.log(geometry.location.lat());
-// // let longitude = geometry.location.lat();
+// let longitude = geometry.location.lat();
 // console.log(latitude);
 // console.log(longitude);
+
