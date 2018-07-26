@@ -3,10 +3,11 @@
 // < src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
 function initMap() {
-  var map = new google.maps.Map(document.getElementById("map"), {
+  window.map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 25.761, lng: -80.1917 },
     zoom: 5
   });
+  var map = window.map;
   var card = document.getElementById("pac-card");
   var input = document.getElementById("pac-input");
   var types = document.getElementById("type-selector");
@@ -88,9 +89,9 @@ function initMap() {
   // Autocomplete.
   function setupClickListener(id, types) {
     var radioButton = document.getElementById(id);
-    radioButton.addEventListener("click", function() {
-      autocomplete.setTypes(types);
-    });
+    // radioButton.addEventListener("click", function() {
+    //   autocomplete.setTypes(types);
+    // });
   }
 
   setupClickListener("changetype-all", []);
@@ -98,51 +99,51 @@ function initMap() {
   setupClickListener("changetype-establishment", ["establishment"]);
   setupClickListener("changetype-geocode", ["geocode"]);
 
-  document
-    .getElementById("use-strict-bounds")
-    .addEventListener("click", function() {
-      console.log("Checkbox clicked! New state=" + this.checked);
-      autocomplete.setOptions({ strictBounds: this.checked });
-    });
+  document.getElementById("use-strict-bounds");
+  // .addEventListener("click", function() {
+  //   console.log("Checkbox clicked! New state=" + this.checked);
+  //   autocomplete.setOptions({ strictBounds: this.checked });
+  // });
 }
 // ------------------------
 
 //WORKING ON AXIOS REQUEST FOR DATA
 
-// window.onload = () => {
-//   var listId = document.getElementById("listName").getAttribute("data-id");
-//   var url = `http://localhost:3000/lists/${listId}`;
-//   console.log("listID:", listId); //WORKING:listId shows up.
-//   axios
-//     .get(url)
-//     .then(response => {
-//       const list = response.data.list; // list is undefined / response.data shows up
-//       console.log("list", response.data);
-//       const position = {
-//         lat: list.lat, // works with hardcoding #s. but not accessing lat, lng.
-//         lng: list.lng
-//       };
-//       const map = new google.maps.Map(document.getElementById("map"), {
-//         zoom: 5,
-//         center: position
-//       });
-//       const marker = new google.maps.Marker({
-//         position: position,
-//         map: map,
-//         title: lists.name
-//       });
-//       console.log(marker);
-//       console.log("title", title);
-//     })
-//     .catch(error => {
-//       console.log(error);
-//     });
-// };
+window.onload = () => {
+  var listId = document.getElementById("listName").getAttribute("data-id");
+  var url = `http://localhost:3000/lists/ajax/${listId}`;
+  console.log("listID:", listId); //WORKING:listId shows up.
+  axios
+    .get(url)
+    .then(response => {
+      const list = response.data; // list is undefined / response.data shows up
+      console.log("list", response.data);
+      const position = {
+        lat: list.lat, // works with hardcoding #s. but not accessing lat, lng.
+        lng: list.lng
+      };
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 5,
+        center: position
+      });
+
+      const marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        title: list.name
+      });
+      console.log(marker);
+      console.log("title", title);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
 
 // / ADDING MARKERS
 
 // const markers = [];
-// console.log(lists);
+// // console.log(lists);
 
 // function listPlaces(lists) {
 //   lists.forEach(lists => {
