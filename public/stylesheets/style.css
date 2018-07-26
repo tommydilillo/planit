@@ -87,6 +87,12 @@ a {
   background-color: lightyellow;
 }
 
+.list-head {
+  margin: auto;
+  padding: 30px;
+  justify-content: center;
+}
+
 .list-header {
   padding: 15px 10px;
   font-size: 22px;
@@ -96,23 +102,6 @@ a {
   background-color: lightyellow;
 }
 
-.list-head {
-  margin: 20px auto;
-  width: 50%;
-  padding: 30px;
-}
-
-.list-detail {
-  border: 3px solid lightgrey;
-  padding: 20px 30px;
-  margin: 0 40px;
-}
-
-.list-map {
-  display: inline-flex;
-  height: 200px;
-  width: 300px;
-}
 .item-block {
   padding: 15px 20px;
   font-size: 22px;
@@ -131,6 +120,18 @@ a {
 .list-info {
   font-style: italic;
   font-size: 12px;
+}
+
+.list-detail {
+  border: 3px solid lightgrey;
+  padding: 20px 30px;
+  margin: 0 40px;
+}
+
+.list-map #map {
+  display: inline-flex;
+  height: 200px;
+  width: 200px;
 }
 
 .delete {

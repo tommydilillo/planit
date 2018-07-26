@@ -126,10 +126,17 @@ a {
 }
 
 //LIST- DETAIL SPECIFIC CSS
-// .list-detail-map {
-//   height: 200px;
-//   width: 100%;
-// }
+.list-detail {
+  border: 3px solid lightgrey;
+  padding: 20px 30px;
+  margin: 10px 40px;
+}
+
+.list-map {
+  display: inline-flex;
+  height: 200px;
+  width: 200px;
+}
 
 .delete {
   background-color: rgba(247, 62, 62, 0.726);

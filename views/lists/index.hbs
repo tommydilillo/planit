@@ -1,34 +1,47 @@
-<h2 class="title">
-    My Lists -
+<div class="list-head d-flex flex-row  ">
+    <div class="list-detail flex-row">
 
-    <span>
-        <a class="btn-primary button-home" href="/lists/add ">Create a new list</a>
+        <h2 class="title">
+            My Lists -
 
-    </span>
+            <span>
+                <a class="btn-primary button-home" href="/lists/add ">Create a new list</a>
 
-</h2>
+            </span>
+
+        </h2>
+    </div>
+    <div class="list-map flex-row" id="map"></div>
+
+</div>
+<div class="nav-border"></div>
+
 <br>
-<br> {{#each lists }}
-<div class="list-block">
-    <h3 class="list-title col-sm-12">
-        <a href="/lists/{{this._id}}">{{this.name}}</a>
-    </h3>
-    <h5 class="list-info">location: {{this.location}}</h5>
-    <h5 class="list-info"># of items: {{this.items.length}}</h5>
+<br>
+<div class="d-flex flex-row flex-wrap">
+    {{#each lists }}
+    <div class="list-block">
+        <h3 class="list-title col-sm-12">
+            <a href="/lists/{{this._id}}">{{this.name}}</a>
+        </h3>
+        <h5 class="list-info">location: {{this.location}}</h5>
+        <h5 class="list-info"># of items: {{this.items.length}}</h5>
 
-    <a class="btn-secondary d-inline" href="/lists/{{this._id}}/edit">EDIT</a>
+        <a class="btn-secondary d-inline" href="/lists/{{this._id}}/edit">EDIT</a>
 
 
 
 
 
-    <form class="d-inline" action="/lists/{{this._id}}/delete" method="post">
-        <button type="submit " class="delete">DELETE</button>
+        <form class="d-inline" action="/lists/{{this._id}}/delete" method="post">
+            <button type="submit " class="delete">DELETE</button>
 
-        <input type="hidden" name="_id">
-    </form>
+            <input type="hidden" name="_id">
+        </form>
 
-</div> {{/each}}
+    </div> {{/each}}
+
+</div>
 
 <div id="map">
 

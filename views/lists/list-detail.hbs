@@ -1,4 +1,4 @@
-<div class="list-head d-flex flex-row  ">
+<div class="list-head d-flex flex-row flex-wrap">
     <div class="list-detail flex-row">
         <h3 id="listName" data-id="{{list._id}}">{{list.name}}
         </h3>
@@ -6,15 +6,14 @@
         <div>Location: {{list.location}}</div>
         <div>Purpose: {{list.purpose}}</div>
         <div>public: {{list.public}}</div>
-        <a href="/lists/{{list._id}}/edit ">EDIT</a>
+        <a href="/lists/{{list._id}}/edit">EDIT</a>
     </div>
 
-    <div class="list-map flex-row" id="map"></div>
-    {{!-- styling for the map --}}
-    <style>
-    </style>
+    <div class="list-map flex-row">
+        <div class="list-map flex-row" id="map"></div>
+        {{!-- styling for the map --}}
+    </div>
 </div>
-
 <div class="nav-border"></div>
 
 <div class="container">
