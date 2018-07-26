@@ -123,17 +123,17 @@ window.onload = () => {
         lng: list.lng
       };
       const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 5,
+        zoom: 10,
         center: position
       });
 
       const marker = new google.maps.Marker({
         position: position,
         map: map,
-        title: list.name
+        name: list.name
       });
       console.log(marker);
-      console.log("title", title);
+      console.log("title", marker.name);
     })
     .catch(error => {
       console.log(error);

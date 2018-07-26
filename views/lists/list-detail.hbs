@@ -1,24 +1,21 @@
-<div class="list-block row">
-    <div class="list-header">
+<div class="list-head d-flex flex-row  ">
+    <div class="list-detail flex-row">
         <h3 id="listName" data-id="{{list._id}}">{{list.name}}
         </h3>
 
-        <div>location: {{list.location}}</div>
-        <p>lat,long: {{list.lat}},{{list.lng}}</p>
-        <div>purpose: {{list.purpose}}</div>
+        <div>Location: {{list.location}}</div>
+        <div>Purpose: {{list.purpose}}</div>
         <div>public: {{list.public}}</div>
         <a href="/lists/{{list._id}}/edit ">EDIT</a>
     </div>
 
-    <div class="col-sm-7" id="map"></div>
+    <div class="list-map flex-row" id="map"></div>
     {{!-- styling for the map --}}
     <style>
-        #map {
-            height: 200px;
-            width: 100%;
-        }
     </style>
 </div>
+
+<div class="nav-border"></div>
 
 <div class="container">
     <div class="row">
@@ -31,7 +28,7 @@
 {{#each list.items}}
 <div class="item-block col-sm-4">
 
-    <div id="{{this._id}}">
+    <div id="{{this._id}} ">
         <h3>Name: {{this.name}}</h3>
         <button onclick="showForm( '{{this._id}}', 'edit-form-{{this._id}}')">Edit Item</button>
         {{!--
