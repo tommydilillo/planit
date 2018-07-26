@@ -10,6 +10,7 @@ a {
 .container {
   margin: 0 20px;
 }
+
 .center {
   margin: 20px auto;
   width: 80%;
@@ -17,6 +18,7 @@ a {
   padding: 10px;
 }
 
+//also class for signup
 .login {
   margin: 20px auto;
   width: 80%;
@@ -34,13 +36,6 @@ a {
   height: 5px;
 }
 
-.home-sub-header {
-  width: 100%;
-  border: red;
-  padding: 20px;
-  background-image: src= "../images/logo.png ";
-}
-
 .title {
   font-size: 40px;
   font-weight: 500;
@@ -56,6 +51,19 @@ a {
   margin: 5px 10px;
 }
 
+//HOME
+
+.logo-home {
+  height: 100px;
+  width: 100px;
+}
+
+.home-head {
+  margin: auto;
+  padding: 0px;
+  justify-content: center;
+}
+
 .button-home {
   padding: 15px 20px;
   font-size: 22px;
@@ -64,8 +72,20 @@ a {
   background-color: teal;
   color: white;
   text-align: center;
+  margin: 20px;
+}
+.home-detail {
+  // border: 3px solid lightgrey;
+  padding: 20px 0 0 0;
+  margin: 10px 40px;
 }
 
+.planit-big {
+  // font-weight: bold;
+  font-size: 50px;
+}
+
+//------
 .index {
   // padding: 15px 30px;
   border-radius: 3px;
@@ -126,18 +146,19 @@ a {
 }
 
 //LIST- DETAIL SPECIFIC CSS
-.list-detail {
-  border: 3px solid lightgrey;
-  padding: 20px 30px;
-  margin: 10px 40px;
+.list-head {
+  margin: auto;
+  padding: 30px;
+  justify-content: center;
 }
 
-.list-map {
+.list-map #map {
   display: inline-flex;
   height: 200px;
   width: 200px;
 }
 
+//--------------
 .delete {
   background-color: rgba(247, 62, 62, 0.726);
 }

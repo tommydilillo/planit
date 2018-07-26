@@ -1,20 +1,51 @@
-<div class="home-sub-header ">
-    <h1> Welcome to planit, {{user.username}}.</h1>
+<div class="home-head d-flex flex-row flex-wrap">
 
-    <a class="btn-primary button-home" href="/lists">My Lists</a>
-    <a class="btn-primary button-home" href="/user/{{user.username}}">My Profile</a>
+    <div class="home-detail flex-row">
+        <h1> Welcome to
+            <span class="planit-big">planit</span>
+        </h1>
 
+
+
+    </div>
+</div>
+<p class="home-head d-flex flex-row flex-wrap">
+    <span style="font-style: italic">
+        Current User: {{user.username}}
+    </span>
+</p>
+<div class="home-head d-flex flex-row flex-wrap">
+    <img class="logo-home flex-row" src="../images/logo.png ">
+    </img>
 </div>
 
+<h4 class="home-head d-flex flex-row flex-wrap">
+    GO EXPLORE!
+</h4>
 
-<h3>PUBLIC LISTS:</h3>
+<div class="home-head d-flex flex-row">
+    <a class=" btn-primary button-home" href="/lists">My Lists</a>
+    <a class="btn-primary button-home" href="/user/{{user.username}}">My Profile</a>
+</div>
 
-{{#each lists }}
-<div class="list-block col-sm-6">
-    <h3 class="list-title col-sm-12">
-        <a href="/lists/{{this._id}} ">{{this.name}}</a>
-    </h3>
-    <h5 class="list-info">location: {{this.location}} </h5>
-    <h5 class="list-info"># of items: {{this.items.length}}</h5>
+<div class="nav-border"></div>
 
-</div> {{/each}}
+<div class="home-head d-flex flex-row">
+    <h3>PUBLIC LISTS:</h3>
+</div>
+<div class="home-head d-flex flex-row" style="font-style: italic">
+    <h5>See what your fellow planiters are exploring:</h5>
+</div>
+
+<div class="d-flex flex-row flex-wrap">
+
+    {{#each lists }}
+    <div class="list-block col-sm-6">
+        <h3 class="list-title col-sm-12">
+            <a href="/lists/{{this._id}}">{{this.name}}</a>
+        </h3>
+        <h5 class="list-info">location: {{this.location}} </h5>
+        <h5 class="list-info"># of items: {{this.items.length}}</h5>
+
+    </div> {{/each}}
+</div>
