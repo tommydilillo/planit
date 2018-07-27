@@ -142,42 +142,44 @@ window.onload = () => {
 
 //AJAX FOR MY LISTS PAGE
 
-window.onload = () => {
-  // var listId = document.getElementById("listName").getAttribute("data-id");
-  // console.log("listID:", listId); //WORKING:listId shows up.
+// window.onload = () => {
+//   var listId = document.getElementById("listName").getAttribute("data-id");
+//   var url = `http://localhost:3000/lists/ajax`;
+//   console.log("listID:", listId); //WORKING:listId shows up.
 
-  var url = `http://localhost:3000/lists/ajax`;
-  axios
-    .get(url)
-    .then(response => {
-      const lists = response.data;
-      console.log("list", response.data);
-      const position = {
-        lat: lists.lat,
-        lng: lists.lng
-      };
-      const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 10,
-        center: position
-      });
+//   axios
+//     .get(url)
+//     .then(response => {
+//       const lists = response.data;
+//       console.log("list", response.data); //lat is not defined
+//       // listPlaces(lists);
 
-      const marker = new google.maps.Marker({
-        position: position,
-        map: map,
-        name: list.name
-      });
-      console.log(marker);
-      console.log("title", marker.name);
-    })
-    .catch(error => {
-      console.log(error);
-    });
-};
+//       const position = {
+//         lat: lists.lat,
+//         lng: lists.lng
+//       };
+//       const map = new google.maps.Map(document.getElementById("map"), {
+//         zoom: 10,
+//         center: position
+//       });
+
+//       const marker = new google.maps.Marker({
+//         position: position,
+//         map: map,
+//         name: list.name
+//       });
+//       console.log(marker);
+//       console.log("title", marker.name);
+//     })
+//     .catch(error => {
+//       console.log(error);
+//     });
+// };
 
 // / ADDING MARKERS
 
 // const markers = [];
-// // console.log(lists);
+// console.log(lists);
 
 // function listPlaces(lists) {
 //   lists.forEach(lists => {

@@ -93,17 +93,17 @@ router.get("/", ensureLogin.ensureLoggedIn(), (req, res, next) => {
 
 //ajax request for lists page (list/index)
 
-router.get("/ajax", (req, res, next) => {
-  List.find({ user: ObjectId(`${req.user._id}`) })
-    .then(lists => {
-      console.log(lists);
-      res.send(lists);
-    })
-    .catch(error => {
-      console.log(error);
-      next();
-    });
-});
+// router.get("/ajax", (req, res, next) => {
+//   List.find({ user: ObjectId(`${req.user._id}`) })
+//     .then(lists => {
+//       console.log(lists);
+//       res.send(lists);
+//     })
+//     .catch(error => {
+//       console.log(error);
+//       next();
+//     });
+// });
 
 // ADD A NEW LIST
 router.get("/add", ensureLogin.ensureLoggedIn(), (req, res, next) => {
