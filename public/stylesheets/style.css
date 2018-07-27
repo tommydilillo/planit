@@ -14,7 +14,8 @@ a {
   margin: 20px auto;
   width: 80%;
   border: 3px solid lightgrey;
-  padding: 30px; }
+  padding: 60px;
+  font-size: 20px; }
 
 .logo2 {
   height: 100px; }
@@ -38,6 +39,10 @@ a {
   margin: 5px 10px; }
 
 .logo-home {
+  height: 100px;
+  width: 100px; }
+
+.logo-title {
   height: 100px;
   width: 100px; }
 
