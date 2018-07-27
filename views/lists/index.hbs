@@ -5,17 +5,16 @@
 </div>
 
 <div class="list head d-flex flex-row flex-wrap center">
-    <img class="logo-home flex-row" src="../images/logo.png "> 
-    </img> 
+    <img class="logo-home flex-row" src="../images/logo.png ">
+    </img>
 </div>
 
 <div class="list-head d-flex flex-row flex-wrap center">
     <h5>Adventure awaits!</h5>
     <p>Plan a weekend getaway, honeymoon, or road trip.</p>
-     <p>Or stay local and track your favorites or wish list of experiences </p>
+    <p>Or stay local and track your favorites or wish list of experiences </p>
 </div>
 
-{{!-- <div class="list-map flex-row" id="map list-map"></div> --}}
 
 </div>
 <div class="nav-border"></div>
@@ -47,6 +46,10 @@
             <input type="hidden" name="_id">
         </form>
 
+
+        <div id="listName" data-id="{{list}}"></div>
+        {{!-- AJAX CALL --}}
+
     </div> {{/each}}
 
 </div>
@@ -62,3 +65,5 @@
     </div>
 </div>
 </div>
+
+<div class="list-map" id="map"></div>

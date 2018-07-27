@@ -107,7 +107,7 @@ function initMap() {
 }
 // ------------------------
 
-//WORKING ON AXIOS REQUEST FOR DATA
+//AXIOS LIST INFO FOR list-detail PAGE
 
 window.onload = () => {
   var listId = document.getElementById("listName").getAttribute("data-id");
@@ -116,11 +116,45 @@ window.onload = () => {
   axios
     .get(url)
     .then(response => {
-      const list = response.data; // list is undefined / response.data shows up
+      const list = response.data;
       console.log("list", response.data);
       const position = {
-        lat: list.lat, // works with hardcoding #s. but not accessing lat, lng.
+        lat: list.lat,
         lng: list.lng
+      };
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 10,
+        center: position
+      });
+
+      const marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        name: list.name
+      });
+      console.log(marker);
+      console.log("title", marker.name);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
+
+//AJAX FOR MY LISTS PAGE
+
+window.onload = () => {
+  // var listId = document.getElementById("listName").getAttribute("data-id");
+  // console.log("listID:", listId); //WORKING:listId shows up.
+
+  var url = `http://localhost:3000/lists/ajax`;
+  axios
+    .get(url)
+    .then(response => {
+      const lists = response.data;
+      console.log("list", response.data);
+      const position = {
+        lat: lists.lat,
+        lng: lists.lng
       };
       const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 10,
@@ -148,8 +182,8 @@ window.onload = () => {
 // function listPlaces(lists) {
 //   lists.forEach(lists => {
 //     const center = {
-//       lat: 30,
-//       lng: 30
+//       lat: lat,
+//       lng: lng
 //     };
 //     const pin = new google.maps.Marker({
 //       position: center,

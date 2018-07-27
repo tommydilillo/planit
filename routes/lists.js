@@ -81,9 +81,23 @@ router.get("/", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   List.find({ user: ObjectId(`${req.user._id}`) })
     .exec()
     .then(lists => {
-      console.log(lists);
-
+      `      // console.log(lists);
+`;
       res.render("lists/index", { lists, user: req.user });
+    })
+    .catch(error => {
+      console.log(error);
+      next();
+    });
+});
+
+//ajax request for lists page (list/index)
+
+router.get("/ajax", (req, res, next) => {
+  List.find({ user: ObjectId(`${req.user._id}`) })
+    .then(lists => {
+      console.log(lists);
+      res.send(lists);
     })
     .catch(error => {
       console.log(error);
