@@ -12,10 +12,7 @@ a {
 }
 
 .center {
-  margin: 20px auto;
-  width: 80%;
-  // border: 3px solid green;
-  padding: 10px;
+  justify-content: center;
 }
 
 //also class for signup
@@ -100,27 +97,6 @@ a {
   text-align: left;
 }
 
-.list-block {
-  // display: inline-flex;
-  padding: 15px 10px;
-  font-size: 22px;
-  border-radius: 3px;
-  width: 360px;
-  text-align: left;
-  margin: 10px 10px;
-  background-color: lightyellow;
-}
-
-.list-header {
-  // display: inline-flex;
-  padding: 15px 10px;
-  font-size: 22px;
-  border-radius: 3px;
-  text-align: left;
-  margin: 10px 10px;
-  background-color: lightyellow;
-}
-
 .item-block {
   padding: 15px 20px;
   font-size: 22px;
@@ -147,15 +123,49 @@ a {
 
 //LIST- DETAIL SPECIFIC CSS
 .list-head {
-  margin: auto;
   padding: 30px;
-  justify-content: center;
+  margin: 20px;
+}
+
+.border-grey {
+  border: 3px solid lightgrey;
 }
 
 .list-map #map {
   display: inline-flex;
   height: 200px;
   width: 200px;
+  margin: 10 px;
+}
+
+.list-detail {
+  border: 3px solid teal;
+  padding: 20px;
+  margin: 10px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+.list-block {
+  // display: inline-flex;
+  padding: 15px 10px;
+  font-size: 22px;
+  border-radius: 3px;
+  width: 360px;
+  text-align: left;
+}
+
+.list-row {
+  justify-content: center;
+  margin: 10px;
+}
+
+//ITEM INFO -----------
+.item-detail {
+  border: 3px solid lightseagreen;
+  padding: 30px;
+  margin: 10px;
+  width: 350px;
 }
 
 //--------------

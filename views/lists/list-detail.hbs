@@ -1,5 +1,5 @@
-<div class="list-head d-flex flex-row flex-wrap">
-    <div class="list-detail flex-row">
+<div class="list-head d-flex flex-row flex-wrap center">
+    <div class="flex-row list-head border-grey">
         <h3 id="listName" data-id="{{list._id}}">{{list.name}}
         </h3>
 
@@ -16,80 +16,78 @@
 </div>
 <div class="nav-border"></div>
 
-<div class="container">
-    <div class="row">
-        <h2>ITEMS: </h2>
-        <a class="btn-success button-index" href="/lists/item-add/{{list._id}}">Add an Item</a>
-    </div>
+<div class="list-row d-flex flex-row flex-wrap">
+    <h2>Add an Item to your list: </h2>
 </div>
 
-
-{{#each list.items}}
-<div class="item-block col-sm-4">
-
-    <div id="{{this._id}} ">
-        <h3>Name: {{this.name}}</h3>
-        <button onclick="showForm( '{{this._id}}', 'edit-form-{{this._id}}')">Edit Item</button>
-        {{!--
-        <p>Location: {{this.location}}</p>
-        <p>Latitude: {{this.lat}}</p> --}}
-        <p>Longitude: {{this.location}}</p>
-        <p>Category: {{this.category}}</p>
-        <p>Visit Date: {{this.visitDate}}</p>
-        <p>Notes: {{this.notes}}</p>
-    </div>
-
-    {{!-- FORM IS HIDDEN UNTIL EDIT BUTTON IS CLICKED --}}
-    <form action="/lists/item-edit/{{this._id}}" method="POST" id="edit-form-{{this._id}}" style="display:none">
-        <label for="name">Name:</label>
-        <input id="name" type="text" name="name" value="{{this.name}}">
-        <br>
-        <br>
-
-        <label for="location">Location:</label>
-        <input id="location" type="text" name="location" value="{{this.location}}">
-        <br>
-        <br>
-
-        <label for="category">Category:</label>
-        <select id="category" name="category">
-            {{!-- CREATE A LOOP WITH ALL VALUES IN AN ARRAY -- for each if {{this.category}} == x instert selceted --}}
-            <option value="food + drink">Food + Drink</option>
-            <option selected value="lodging">Lodging</option>
-            <option value="nightlife">Night Life</option>
-            <option value="music">Music</option>
-            <option value="culture + arts">Culture + Arts</option>
-            <option value="outdoors">Outdoors</option>
-            <option value="sports">Sports</option>
-            <option value="kids">kids</option>
-            <option value="festivals + fairs">Festivals + Fairs</option>
-            <option value="fun">Fun</option>
-            <option value="off-beat">Off-beat</option>
-            <option value="misc">Misc</option>
-        </select>
-        <br>
-        <br>
-
-        <label for="visitDate">Visit Date</label>
-        <input id="visitDate" type="date" name="visitDate">
-        <br>
-        <br> {{!--
-        <label for="img ">Images:</label>
-        <input id="img " type="img " name="img ">
-        <br>
-        <br> --}}
-
-        <label for="notes">Notes:</label>
-        <input id="notes" type="text" name="notes" value="{{this.notes}}">
-        <br>
-        <br>
-
-        <br> {{#if message}}
-        <div class=" error-message">{{ message }}</div>
-        {{/if}}
-
-        <button>Submit Edit</button>
-    </form>
+<div class="list-row d-flex flex-row flex-wrap">
+    <a class="btn-success button-index" href="/lists/item-add/{{list._id}}">New Item</a>
 </div>
 
-{{/each}}
+<div class="d-flex flex-row flex-wrap center">
+    {{#each list.items}}
+    <div class="d-flex flex-row flex-wrap">
+
+        <div class="item-detail" id="{{this._id}}">
+            <h3>{{this.name}}</h3>
+            <p>Location: {{this.location}}</p>
+            <p>Category: {{this.category}}</p>
+            <p>Visit Date: {{this.visitDate}}</p>
+            <p>Notes: {{this.notes}}</p>
+            <button onclick="showForm('{{this._id}}', 'edit-form-{{this._id}}')">Edit Item</button>
+        </div>
+
+        {{!-- FORM IS HIDDEN UNTIL EDIT BUTTON IS CLICKED --}}
+        <form action="/lists/item-edit/{{this._id}}" method="POST" id="edit-form-{{this._id}}" style="display:none" class="item-detail">
+            <label for="name">Name:</label>
+            <input id="name" type="text" name="name" value="{{this.name}}">
+            <br>
+            <br>
+
+            <label for="location">Location:</label>
+            <input id="location" type="text" name="location" value="{{this.location}}">
+            <br>
+            <br>
+
+            <label for="category">Category:</label>
+            <select id="category" name="category">
+                {{!-- CREATE A LOOP WITH ALL VALUES IN AN ARRAY -- for each if {{this.category}} == x instert selceted --}}
+                <option value="food + drink">Food + Drink</option>
+                <option selected value="lodging">Lodging</option>
+                <option value="nightlife">Night Life</option>
+                <option value="music">Music</option>
+                <option value="culture + arts">Culture + Arts</option>
+                <option value="outdoors">Outdoors</option>
+                <option value="sports">Sports</option>
+                <option value="kids">kids</option>
+                <option value="festivals + fairs">Festivals + Fairs</option>
+                <option value="fun">Fun</option>
+                <option value="off-beat">Off-beat</option>
+                <option value="misc">Misc</option>
+            </select>
+            <br>
+            <br>
+
+            <label for="visitDate">Visit Date</label>
+            <input id="visitDate" type="date" name="visitDate">
+            <br>
+            <br> {{!--
+            <label for="img ">Images:</label>
+            <input id="img " type="img " name="img ">
+            <br>
+            <br> --}}
+
+            <label for="notes">Notes:</label>
+            <input id="notes" type="text" name="notes" value="{{this.notes}}">
+            <br>
+            <br>
+
+            <br> {{#if message}}
+            <div class=" error-message">{{ message }}</div>
+            {{/if}}
+
+            <button>Submit Edit</button>
+        </form>
+    </div>
+    {{/each}}
+</div>
