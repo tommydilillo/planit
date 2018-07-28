@@ -4,13 +4,23 @@
 {{!--
 <form action="/item/item-add/{{list._id}}" method="POST" id="form-container"> --}}
     <form action="/lists/item-add/{{list._id}}" method="POST" id="form-container">
-        <label for="name">Name:</label>
-        <input id="name" type="text" name="name" placeholder="Item name">
+
+        <input id="lat" type="hidden" name="lat" value="2">
+        <input id="lng" type="hidden" name="lng" value="1">
+
+        <div class="input-group">
+
+            <label for="name">Name:</label>
+            <input id="name" type="text" name="name" placeholder="Item name" class="form-control">
+        </div>
+
         <br>
         <br>
 
         <label for="location">Location:</label>
         <input id="pac-input" type="text" name="location" placeholder="i.e. Florida, Miami, or USA">
+        <br>
+
         <div id="type-selector" class="pac-controls">
             <input type="radio" name="type" id="changetype-all" checked="checked">
             <label for="changetype-all">All</label>

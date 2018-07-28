@@ -74,7 +74,7 @@
             <br>
 
             <label for="visitDate">Visit Date</label>
-            <input id="visitDate" type="date" name="visitDate">
+            <input id="visitDate" type="date" name="visitDate" value="{{this.visitDate}}">
             <br>
             <br> {{!--
             <label for="img ">Images:</label>
@@ -87,6 +87,9 @@
             <br>
             <br>
 
+            <label for="link">Link:</label>
+            <input id="link" type="text" name="link" value="{{this.link}}">
+            <br>
             <br> {{#if message}}
             <div class=" error-message">{{ message }}</div>
             {{/if}}
