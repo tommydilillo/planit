@@ -26,12 +26,12 @@ router.get("/item-add/:id", (req, res, next) => {
 });
 
 router.post("/item-add/:id", (req, res, next) => {
-  const { name, location, category, visitDate, notes } = req.body;
+  const { name, location, category, visitDate, link, notes } = req.body;
   let listId = req.params.id;
   console.log("listID: " + listId);
   List.findById(listId)
     .then(list => {
-      list.items.push({ name, location, category, visitDate, notes });
+      list.items.push({ name, location, category, visitDate, link, notes });
       list
         .save()
         .then(list => {
@@ -48,12 +48,12 @@ router.post("/item-add/:id", (req, res, next) => {
 //EDIT ITEM
 
 router.post("/item-edit/:id", (req, res, next) => {
-  const { name, location, category, visitDate, notes } = req.body;
+  const { name, location, category, visitDate, link, notes } = req.body;
   let itemId = req.params.id;
   console.log("itemId: " + itemId);
   List.findOneAndUpdate(
     { "items._id": itemId },
-    { "items.$": { name, location, category, visitDate, notes } }
+    { "items.$": { name, location, category, visitDate, link, notes } }
   )
     .then(list => {
       // list.items

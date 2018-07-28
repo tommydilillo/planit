@@ -51,7 +51,8 @@ const listSchema = new Schema(
           }
         ],
         priority: Number,
-        notes: { type: String, maxlength: 200 }
+        notes: { type: String, maxlength: 200 },
+        link: String
       }
     ]
   },
